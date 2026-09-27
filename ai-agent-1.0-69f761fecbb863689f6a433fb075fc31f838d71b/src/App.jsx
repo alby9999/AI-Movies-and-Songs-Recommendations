@@ -45,7 +45,6 @@ import {
   FileText,
   Headphones,
 } from "lucide-react";
-import TasteProfile from "./TasteProfile";
 import MusicPlayerApp from "./MusicPlayerApp";
 
 /* --------------------------------------------------------------- */
@@ -164,7 +163,6 @@ const NAV_TABS = [
   { id: "music", label: "Music & Songs", icon: Music },
   { id: "watchlist", label: "Watchlist", icon: Bookmark },
   { id: "favourites", label: "Favourites", icon: Heart },
-  { id: "profile", label: "Taste Profile", icon: User },
 ];
 
 // DEEP ABYSS GRADIENTS
@@ -2380,7 +2378,7 @@ function Discover({
                   setCurrentPage(1);
                 }}
               >
-                {type === "all" ? "All Media" : type === "movie" ? "Movies Only" : "Songs Only (Spotify)"}
+                {type === "all" ? "All Media" : type === "movie" ? "Movies Only" : "Songs Only"}
               </button>
             ))}
           </div>
@@ -5895,9 +5893,7 @@ export default function App() {
               />
             )}
 
-            {activeTab === "profile" && (
-              <TasteProfile user={profile} onUserUpdate={setProfile} />
-            )}
+
           </div>
 
           <ApiKeyModal 

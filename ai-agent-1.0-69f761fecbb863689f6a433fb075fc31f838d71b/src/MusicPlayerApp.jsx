@@ -259,6 +259,33 @@ export default function MusicPlayerApp({
   }, [debouncedQuery, localFilteredTracks, externalResults]);
 
   // -------------------------------------------------------------
+  // Pagination (15 tracks per page)
+  // -------------------------------------------------------------
+  const MUSIC_PAGE_SIZE = 15;
+  const [musicPage, setMusicPage] = useState(1);
+
+  // Reset to page 1 whenever filters or search changes
+  useEffect(() => { setMusicPage(1); }, [debouncedQuery, selectedGenre, selectedMood]);
+
+  const musicTotalPages = Math.max(1, Math.ceil(displayTracks.length / MUSIC_PAGE_SIZE));
+  const musicValidPage = Math.min(musicPage, musicTotalPages);
+  const musicStartIdx = (musicValidPage - 1) * MUSIC_PAGE_SIZE;
+  const musicEndIdx = Math.min(musicStartIdx + MUSIC_PAGE_SIZE, displayTracks.length);
+  const paginatedTracks = displayTracks.slice(musicStartIdx, musicEndIdx);
+
+  const getMusicPageNumbers = () => {
+    if (musicTotalPages <= 7) return Array.from({ length: musicTotalPages }, (_, i) => i + 1);
+    const pages = [1];
+    if (musicValidPage > 3) pages.push("...");
+    const start = Math.max(2, musicValidPage - 1);
+    const end = Math.min(musicTotalPages - 1, musicValidPage + 1);
+    for (let p = start; p <= end; p++) pages.push(p);
+    if (musicValidPage < musicTotalPages - 2) pages.push("...");
+    pages.push(musicTotalPages);
+    return pages;
+  };
+
+  // -------------------------------------------------------------
   // Manual Web Search trigger from Empty State or Button
   // -------------------------------------------------------------
   const handleForceGlobalSearch = () => {
@@ -1738,7 +1765,7 @@ export default function MusicPlayerApp({
               </>
             ) : (
               <>
-                <span>Showing {displayTracks.length} songs for</span>
+                <span>Showing {musicStartIdx + 1}–{musicEndIdx} of {displayTracks.length} songs for</span>
                 <span className="cp-status-badge">{filterSummary}</span>
               </>
             )}
@@ -1768,7 +1795,7 @@ export default function MusicPlayerApp({
 
         {/* Track Grid */}
         <div className="cp-grid">
-          {displayTracks.map((track) => {
+          {paginatedTracks.map((track) => {
             const isThisTrackPlaying = currentTrack?.id === track.id && isPlaying;
             const isExpanded = expandedTrackId === track.id;
 
@@ -2125,6 +2152,51 @@ export default function MusicPlayerApp({
             </div>
           )}
         </div>
+
+        {/* Songs Pagination */}
+        {musicTotalPages > 1 && displayTracks.length > 0 && (
+          <div className="rr-pagination" id="cp-pagination-bar" style={{ marginTop: 24, marginBottom: 8 }}>
+            <button
+              type="button"
+              className="rr-page-btn rr-page-btn--prev"
+              onClick={() => { if (musicValidPage > 1) { setMusicPage(musicValidPage - 1); window.scrollTo({ top: 0, behavior: 'smooth' }); } }}
+              disabled={musicValidPage === 1}
+              aria-label="Previous Page"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              <span>Previous</span>
+            </button>
+
+            <div className="rr-page-numbers">
+              {getMusicPageNumbers().map((p, idx) =>
+                p === "..." ? (
+                  <span key={`mdots-${idx}`} className="rr-page-ellipsis">&hellip;</span>
+                ) : (
+                  <button
+                    key={`mpage-${p}`}
+                    type="button"
+                    className={`rr-page-num ${p === musicValidPage ? "rr-page-num--active" : ""}`}
+                    onClick={() => { setMusicPage(p); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                    aria-label={`Go to page ${p}`}
+                  >
+                    {p}
+                  </button>
+                )
+              )}
+            </div>
+
+            <button
+              type="button"
+              className="rr-page-btn rr-page-btn--next"
+              onClick={() => { if (musicValidPage < musicTotalPages) { setMusicPage(musicValidPage + 1); window.scrollTo({ top: 0, behavior: 'smooth' }); } }}
+              disabled={musicValidPage === musicTotalPages}
+              aria-label="Next Page"
+            >
+              <span>Next</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        )}
       </main>
 
       {/* ---------------- PERSISTENT BOTTOM AUDIO DOCK / MINI-PLAYER ---------------- */}
