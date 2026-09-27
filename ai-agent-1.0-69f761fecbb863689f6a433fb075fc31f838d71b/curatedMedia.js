@@ -1158,8 +1158,8 @@ const RAW_MOVIES = [
     "industry": "South Indian / Bollywood",
     "flag": "🇮🇳",
     "blurb": "Shiva learns of his royal lineage and takes up arms to avenge his legendary father Amarendra Baahubali.",
-    "vibe": "colossal, mythical, larger-than-life, epic world-building",
-    "reason": "monumental Indian mythology on a colossal cinematic scale",
+    "vibe": "explosive blockbuster, high fantasy & magic, epic kingdom war, mythological warriors, grand spectacle",
+    "reason": "monumental blockbuster spectacle that redefined Indian cinematic scale",
     "moods": [
       "escapist",
       "highenergy"
@@ -1181,8 +1181,8 @@ const RAW_MOVIES = [
     "industry": "South Indian / Bollywood",
     "flag": "🇮🇳",
     "blurb": "Two fearless revolutionaries forge a legendary brotherhood and battle the British Raj in 1920s India.",
-    "vibe": "volcanic energy, brotherhood, tigers, epic action spectacle",
-    "reason": "volcanic brotherly bond and jaw-dropping action spectacle",
+    "vibe": "explosive blockbuster, volcanic adrenaline, brotherhood friendship, tiger fight spectacle",
+    "reason": "jaw-dropping action masterpiece celebrating fierce brotherhood and rebellion",
     "moods": [
       "escapist",
       "highenergy"
@@ -1275,8 +1275,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Four dysfunctional brothers in an island fishing village navigate bitter rivalries, romance, and shared healing.",
-    "vibe": "poetic, backwaters, soulful, heartwarming",
-    "reason": "pure coastal Kerala magic and healing brotherhood",
+    "vibe": "family cozy warmth, four brothers healing, backwaters rain passion, poetic romance, soulful home",
+    "reason": "sublime tale of brothers rebuilding their broken home with love and unity",
     "moods": [
       "feelgood",
       "cozy",
@@ -1323,8 +1323,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "An unfaithful wife, a transgender parent, a rebellious youth, and an ex-pastor collide across one fateful Chennai day.",
-    "vibe": "bold, philosophical, kaleidoscopic, mind-bending",
-    "reason": "daring multi-narrative tour de force of morality and cosmos",
+    "vibe": "shocking plot twists, neon noir city, interconnected lives, philosophical mind-bending cosmos",
+    "reason": "daring kaleidoscope of human existence with jaw-dropping climax revelations",
     "moods": [
       "mindbending",
       "darkgritty",
@@ -1347,8 +1347,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A fiery tribal rebel clashes with an unyielding forest officer against the backdrop of sacred forest demi-god folklore.",
-    "vibe": "primal, divine, forest echoes, electrifying",
-    "reason": "unearthly climax channeling primal Indian folk deity spirits",
+    "vibe": "demonic & occult folklore, daiva spirit possession, divine retribution, primal forest energy, mythological",
+    "reason": "electrifying folklore masterpiece showcasing sacred Bhoota Kola possession and divine fury",
     "moods": [
       "highenergy",
       "spooky",
@@ -1371,8 +1371,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A group of close-knit Kochi friends mount an impossible deep-cave rescue when one of them plunges into Guna Caves.",
-    "vibe": "claustrophobic, heart-stopping, survival, brotherhood",
-    "reason": "nerve-shredding true survival and unwavering friendship",
+    "vibe": "brotherhood friendship, Guna caves rescue quest, survival thriller, heart-stopping adrenaline",
+    "reason": "gripping true story of camaraderie and courage inside the Devil's Kitchen cave",
     "moods": [
       "highenergy",
       "cry"
@@ -1394,8 +1394,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Two high school sweethearts reunite at a class reunion after twenty-two years, spending one bittersweet night in Chennai.",
-    "vibe": "pure nostalgia, rain, yellow dupatta, bittersweet ache",
-    "reason": "achingly beautiful nostalgia and unspoken lifelong love",
+    "vibe": "romantic heartbreak, unrequited separation, bittersweet tears, pure nostalgia, rain & monsoon passion, school first love",
+    "reason": "heart-aching nostalgic romance of separated school sweethearts reuniting after 22 years",
     "moods": [
       "romantic",
       "cry",
@@ -1419,8 +1419,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Three close cousins fulfill their childhood dream of relocating to Bangalore together, navigating heartbreak and personal dreams.",
-    "vibe": "breezy, youthful, heartwarming, comforting",
-    "reason": "joyous celebration of family, cousins, and youth dreams",
+    "vibe": "friendship buddies, motorcycle road trip, college gang, youthful adventures, heartwarming family cozy",
+    "reason": "definitive friendship and road trip feel-good classic of three inseparable cousins",
     "moods": [
       "feelgood",
       "nostalgic",
@@ -1443,8 +1443,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A special black-ops commander leads a covert war against a brutal drug kingpin to avenge a fallen agent.",
-    "vibe": "blistering gunfire, cannon fire, relentless adrenaline, gritty",
-    "reason": "unforgiving adrenaline rush and gunplay spectacle",
+    "vibe": "hand-to-hand combat, tactical spy thriller, supercars convoy chase, explosive guns blockbuster",
+    "reason": "electrifying mass spectacle loaded with hand-to-hand fights and heavy weaponry",
     "moods": [
       "highenergy",
       "darkgritty"
@@ -3701,8 +3701,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A young man has three opportunities to find love. Will the third time be the charm?",
-    "vibe": "comedy,  drama,  romance, acclaimed",
-    "reason": "acclaimed feelgood masterpiece",
+    "vibe": "first love & college, campus youth, lifelong buddies gang, wholesome romance, coming-of-age",
+    "reason": "magical celebration of college romance, friendships, and moving forward in life",
     "moods": [
       "feelgood",
       "romantic",
@@ -3725,8 +3725,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Faisi wants to go to UK to become a professional chef but circumstances force him to assist his grandfather in a small restaurant in Kozhikode city, changing his outlook on life forever.",
-    "vibe": "comedy,  drama, acclaimed",
-    "reason": "acclaimed feelgood masterpiece",
+    "vibe": "inspiring underdog, chef culinary dream, grandfather wisdom, wholesome warmth, cozy home",
+    "reason": "soulful feel-good underdog journey of finding purpose through food and compassion",
     "moods": [
       "feelgood",
       "comfort",
@@ -3749,8 +3749,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "The plot revolves around the life of a family man. Unexpected events happen in their house. The brother and father decide to take on the challenges.",
-    "vibe": "comedy,  drama,  romance, acclaimed",
-    "reason": "acclaimed feelgood masterpiece",
+    "vibe": "laugh-out-loud comedy, family cozy warmth, hilarious father-son chemistry, sweet romance",
+    "reason": "breezy family situational comedy filled with laughter and cozy moments",
     "moods": [
       "feelgood",
       "comfort"
@@ -3772,8 +3772,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "The plot revolves around the three prisoners. They get released and plan for a happy life outside. Things take a new turn and bring in a twist. Can they find happiness and love now?",
-    "vibe": "comedy, acclaimed",
-    "reason": "acclaimed feelgood masterpiece",
+    "vibe": "laugh-out-loud comedy, hilarious trio, slapstick humor, comic innocence, court comedy",
+    "reason": "non-stop riotous laugh-out-loud comedy of three naive friends",
     "moods": [
       "feelgood",
       "comfort"
@@ -3795,8 +3795,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A wannabe businesswoman and a happy-go-lucky guy meet each other during an arranged marriage blind date but eventually team up to start a food truck on their own.",
-    "vibe": "comedy,  drama,  romance, acclaimed",
-    "reason": "acclaimed feelgood masterpiece",
+    "vibe": "laugh-out-loud comedy, classic rom-com, food truck dream, sweet chemistry, wholesome romance",
+    "reason": "charming romantic comedy about two dreamers starting a food truck",
     "moods": [
       "feelgood",
       "romantic",
@@ -3819,8 +3819,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "The last active farmer in a remote village tries to hold out against a property developer.",
-    "vibe": "drama, acclaimed",
-    "reason": "acclaimed feelgood masterpiece",
+    "vibe": "inspiring underdog, peaceful agriculture, selfless sacrifice, 80-year-old farmer, village unity, dignity",
+    "reason": "heartwarming underdog tribute to traditional farming and ancient wisdom",
     "moods": [
       "feelgood",
       "comfort",
@@ -3843,8 +3843,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "When his fiancee's niece is kidnapped, a stoic army doctor and his motley team launch a rescue operation in which they need both wit and their wits.",
-    "vibe": "action,  comedy,  crime, acclaimed",
-    "reason": "acclaimed feelgood masterpiece",
+    "vibe": "laugh-out-loud comedy, dark humor, hilarious poker-faced hero, clever rescue mission",
+    "reason": "delightfully witty dark comedy with laugh-out-loud family situations",
     "moods": [
       "feelgood",
       "highenergy",
@@ -3867,8 +3867,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A simple boy-next-door whose biggest problem in life is his snoring, falls in love with a girl. Follow how the couple overcome his sleeping problem while living together.",
-    "vibe": "comedy,  drama,  romance, acclaimed",
-    "reason": "acclaimed feelgood masterpiece",
+    "vibe": "laugh-out-loud comedy, wholesome romance, sweet marriage chemistry, family cozy warmth, snoring humor",
+    "reason": "delightfully sweet feel-good rom-com about love, snoring, and acceptance",
     "moods": [
       "feelgood",
       "romantic",
@@ -3891,8 +3891,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Kirik Party is the story of a gang of mischievous students, lead by the protagonist Karna (Rakshit Shetty), who has just joined an engineering college.",
-    "vibe": "comedy,  drama,  romance, acclaimed",
-    "reason": "acclaimed feelgood masterpiece",
+    "vibe": "friendship buddies, college days, engineering hostel, campus romance, coming-of-age road trip",
+    "reason": "celebration of engineering college friendship, hostel days, and first love",
     "moods": [
       "feelgood",
       "nostalgic",
@@ -3915,8 +3915,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Dharma is stuck in a rut with his negative and lonely lifestyle and spends each day in the comfort of his loneliness. A pup named Charlie enters his life and gives him a new perspective towards it.",
-    "vibe": "adventure,  comedy,  drama, acclaimed",
-    "reason": "acclaimed feelgood masterpiece",
+    "vibe": "inspiring underdog, road trip journey, loyalty, dog friendship, emotional tearjerker, grief & farewell",
+    "reason": "inspiring underdog journey of a lonely man and his rescued dog traveling across India",
     "moods": [
       "feelgood",
       "cry",
@@ -4291,8 +4291,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "The last active farmer in a remote village tries to hold out against a property developer.",
-    "vibe": "drama, acclaimed",
-    "reason": "acclaimed cry masterpiece",
+    "vibe": "inspiring underdog, peaceful agriculture, selfless sacrifice, 80-year-old farmer, village unity, dignity",
+    "reason": "heartwarming underdog tribute to traditional farming and ancient wisdom",
     "moods": [
       "cry",
       "feelgood"
@@ -4337,8 +4337,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "When a tribal man is arrested for a case of alleged theft, his wife turns to a human-rights lawyer to help bring justice.",
-    "vibe": "crime,  drama, acclaimed",
-    "reason": "acclaimed cry masterpiece",
+    "vibe": "selfless sacrifice, heroic courtroom defense, human dignity, tearjerker, police corruption",
+    "reason": "powerful true-story legal drama of heroic sacrifice fighting for the oppressed",
     "moods": [
       "cry",
       "darkgritty"
@@ -4360,8 +4360,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A determined villager challenges the aviation industry's elite by pursuing his vision of affordable air travel for all, despite numerous obstacles and setbacks",
-    "vibe": "drama, acclaimed",
-    "reason": "acclaimed cry masterpiece",
+    "vibe": "inspiring underdog, triumph over poverty, low-cost airline dream, determination, victory, motivation",
+    "reason": "ultimate inspiring underdog triumph of a rebel dreaming of making common people fly",
     "moods": [
       "cry",
       "feelgood",
@@ -4408,8 +4408,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A failed cricketer decides to revive his cricketing career in his late 30's despite everyone being skeptical of his ability to do so.",
-    "vibe": "drama,  sport, acclaimed",
-    "reason": "acclaimed cry masterpiece",
+    "vibe": "inspiring underdog, cricket sports comeback, triumph, motivation, father's sacrifice, emotional victory",
+    "reason": "deeply moving underdog sports drama of a father chasing his dream at 36",
     "moods": [
       "cry",
       "feelgood",
@@ -4456,8 +4456,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A single father begins to narrate the story of the missing mother to his child and nothing remains the same.",
-    "vibe": "drama,  family,  romance, acclaimed",
-    "reason": "acclaimed cry masterpiece",
+    "vibe": "family tears, father-daughter bond, emotional tearjerker, cozy warmth, heartwarming romance",
+    "reason": "tender emotional tearjerker celebrating unconditional father-daughter love",
     "moods": [
       "cry",
       "romantic",
@@ -4480,8 +4480,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A soldier receives a life-changing letter from a woman named Sita, leading to a beautiful romance. Their love story takes an unexpected turn when he returns to his military post in Kashmir and faces imprisonment.",
-    "vibe": "action,  drama,  musical, acclaimed",
-    "reason": "acclaimed cry masterpiece",
+    "vibe": "destiny & soulmates, 1965 wartime letters, epic romance, tragic heartbreak, eternal love",
+    "reason": "classic poignant love story of an orphaned lieutenant and his mysterious pen pal",
     "moods": [
       "cry",
       "romantic",
@@ -4504,8 +4504,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Will an unexpected turn of events change Rameshan's life forever and prevent him from witnessing his dream where his son becomes a reputable IAS Officer?",
-    "vibe": "drama, acclaimed",
-    "reason": "acclaimed cry masterpiece",
+    "vibe": "grief & farewell, terminal memories loss, alzheimer's tragedy, family tears, heartbreaking farewell",
+    "reason": "shattering emotional tearjerker on memory loss and selfless family devotion",
     "moods": [
       "cry",
       "latenight"
@@ -4527,8 +4527,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Madhavan, a villager, comes across Pavan, a young boy who lost his family in the Gujarat earthquake. He welcomes Pavan into his family and the rapport between them strengthens over time.",
-    "vibe": "drama, acclaimed",
-    "reason": "acclaimed cry masterpiece",
+    "vibe": "family tears, grief & farewell, foster father bond, heartbreaking separation, poignant tearjerker",
+    "reason": "deeply emotional farewell between a village projectionist and a lost boy",
     "moods": [
       "cry",
       "feelgood"
@@ -4550,8 +4550,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "The life of a young man turns upside down when he intervenes in a dispute in order to rescue his father (a cop) from a ruthless local outlaw.",
-    "vibe": "action,  drama, acclaimed",
-    "reason": "acclaimed cry masterpiece",
+    "vibe": "deep emotional tearjerker, grief & farewell, tragic lost dream, romantic heartbreak, father's tears",
+    "reason": "classic tragedy of an honest youth pulled into circumstances beyond his control",
     "moods": [
       "cry",
       "darkgritty"
@@ -4936,8 +4936,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Zain and Aaliya's love is tested by a bitter family feud. Can their hearts overcome the past and forge a future together?",
-    "vibe": "drama, acclaimed",
-    "reason": "acclaimed romantic masterpiece",
+    "vibe": "classic rom-com, enemies to lovers banter, rain & monsoon passion, train courtship, sweet chemistry",
+    "reason": "definitive modern romance capturing the euphoria of falling in love and marriage",
     "moods": [
       "romantic",
       "feelgood",
@@ -5007,8 +5007,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A young man realizes that he has to push back against his domineering father if he wants to find true happiness and love.",
-    "vibe": "comedy,  drama,  romance, acclaimed",
-    "reason": "acclaimed romantic masterpiece",
+    "vibe": "family cozy warmth, father-son bond, wholesome romance, enemies to lovers banter",
+    "reason": "beloved family drama about overprotective parenting and true love",
     "moods": [
       "romantic",
       "feelgood",
@@ -5055,8 +5055,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Dia takes three years to confess her feelings to Rohith but after a terrible accident, she is told he does not survive. Later, when she starts seeing Adi, she finds out that Rohith is still alive.",
-    "vibe": "drama,  romance, acclaimed",
-    "reason": "acclaimed romantic masterpiece",
+    "vibe": "romantic heartbreak, unrequited separation, devastating emotional twist, bittersweet tearjerker",
+    "reason": "unflinchingly poignant tearjerker exploring love, loss, and fate",
     "moods": [
       "romantic",
       "cry"
@@ -5078,8 +5078,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "The emotional journey of Arun, his carefree bachelor days in engineering college, and how he matures through various phases of life.",
-    "vibe": "drama,  musical,  romance, acclaimed",
-    "reason": "acclaimed romantic masterpiece",
+    "vibe": "first love & college, hostel days engineering, youthful memories nostalgia, coming-of-age journey",
+    "reason": "warm musical odyssey following Arun's campus days, heartbreaks, and growing up",
     "moods": [
       "romantic",
       "nostalgic",
@@ -5475,8 +5475,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Dilli, an ex-convict, endeavours to meet his daughter for the first time after leaving prison. However, his attempts are interrupted due to a drug raid planned by Inspector Bejoy.",
-    "vibe": "action,  crime,  drama, acclaimed",
-    "reason": "acclaimed highenergy masterpiece",
+    "vibe": "hand-to-hand combat, relentless prison siege, night combat stunts, raw adrenaline rush",
+    "reason": "ferocious hand-to-hand action thriller set in a single tension-packed night",
     "moods": [
       "highenergy",
       "darkgritty",
@@ -5499,8 +5499,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Parthiban is a mild-mannered cafe owner who fends off a gang of murderous thugs and gains attention from a drug cartel claiming he was once a part of them.",
-    "vibe": "action,  crime,  drama, acclaimed",
-    "reason": "acclaimed highenergy masterpiece",
+    "vibe": "hand-to-hand combat, café brawl, underworld mafia past, high adrenaline, fast-paced rush",
+    "reason": "brutal close-quarters fight sequences and adrenaline-fueled action",
     "moods": [
       "highenergy",
       "darkgritty"
@@ -5522,8 +5522,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "An army captain is on a mission to track down and destroy a terrorist gang and deactivate the sleeper cells under its command.",
-    "vibe": "action,  thriller, acclaimed",
-    "reason": "acclaimed highenergy masterpiece",
+    "vibe": "tactical spy thriller, secret agent captain, sleeper cell manhunt, hand-to-hand combat stunts",
+    "reason": "slick intelligence spy thriller with thrilling brain-over-brawn tactics",
     "moods": [
       "highenergy",
       "feelgood"
@@ -5545,8 +5545,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Vinayak, a suspended cop, helps a group of four men rob cricket betting money amounting to 500 crores INR. When it comes to splitting the amount, betrayal hits the team hard and a chase ensues.",
-    "vibe": "action,  crime,  thriller, acclaimed",
-    "reason": "acclaimed highenergy masterpiece",
+    "vibe": "supercars & heists, 500-crore betting money heist, car chase speed, corrupt cop adrenaline",
+    "reason": "adrenaline-pumping heist thriller with high-speed chases and betrayal",
     "moods": [
       "highenergy",
       "darkgritty"
@@ -5568,8 +5568,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A retired jailer goes on a manhunt to find his son's killers. But the road leads him to a familiar, albeit a bit darker place. Can he emerge from this complex situation successfully?",
-    "vibe": "action,  comedy,  crime, acclaimed",
-    "reason": "acclaimed highenergy masterpiece",
+    "vibe": "explosive blockbuster, retired cop tiger muthuvel pandian, underworld mafia confrontation, mass guns",
+    "reason": "stylish blockbuster showing an unassuming grandfather unleashing lethal fury",
     "moods": [
       "highenergy",
       "darkgritty"
@@ -5591,8 +5591,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A child from the Mahishmati kingdom is raised by tribal people and one day learns about his royal heritage, his father's bravery in battle and a mission to overthrow the incumbent ruler.",
-    "vibe": "action,  drama, acclaimed",
-    "reason": "acclaimed highenergy masterpiece",
+    "vibe": "explosive blockbuster, high fantasy, waterfall quest expedition, grand kingdoms and swords",
+    "reason": "awe-inspiring fantasy quest of an exiled prince scaling giant waterfalls",
     "moods": [
       "highenergy",
       "escapist"
@@ -5614,8 +5614,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A labourer rises through the ranks of a red sandalwood smuggling syndicate, making some powerful enemies in the process.",
-    "vibe": "action,  crime,  drama, acclaimed",
-    "reason": "acclaimed highenergy masterpiece",
+    "vibe": "underworld syndicate, red sanders forest smuggling, explosive blockbuster, mass action swag",
+    "reason": "gripping rise of a coolie into the ruthless timber smuggling underworld",
     "moods": [
       "highenergy",
       "darkgritty"
@@ -5637,8 +5637,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "The life of three mysterious individuals take a turn as their faces gets exposed.",
-    "vibe": "action,  adventure, acclaimed",
-    "reason": "acclaimed highenergy masterpiece",
+    "vibe": "hand-to-hand martial combat, martial arts festival fight, brothers bond, explosive stunts",
+    "reason": "nostalgic martial arts actioner filled with high-voltage brawls",
     "moods": [
       "highenergy",
       "feelgood"
@@ -5660,8 +5660,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Three teenagers reach Bangalore for their engineering degree and gets involved in a fight with seniors. They find a local gangster named Ranga to help them take revenge.",
-    "vibe": "action,  comedy, acclaimed",
-    "reason": "acclaimed highenergy masterpiece",
+    "vibe": "hand-to-hand brawl, hilarious comedy, college gang friendship, explosive mass energy",
+    "reason": "wild adrenaline rush featuring Ranga anna's chaotic fights and gang camaraderie",
     "moods": [
       "highenergy",
       "feelgood",
@@ -6091,8 +6091,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "On the day of a public conference by the state's Chief Minister, his bodyguard and a police officer are stuck in a time loop.",
-    "vibe": "action,  adventure,  sci-fi, acclaimed",
-    "reason": "acclaimed mindbending masterpiece",
+    "vibe": "time travel & loops, political assassination loop, temporal paradox, time rewind, mind-bending pacing",
+    "reason": "smart, exhilarating time loop thriller where a Muslim bodyguard repeats the same deadly day",
     "moods": [
       "mindbending",
       "highenergy",
@@ -6115,8 +6115,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Counter Terrorism Agent Jack Bauer races against the clock to subvert terrorist plots and save his nation from ultimate disaster.",
-    "vibe": "action,  crime,  drama, acclaimed",
-    "reason": "acclaimed mindbending masterpiece",
+    "vibe": "time travel & loops, temporal rewind, watchmaker invention, supercars chase, plot twists",
+    "reason": "inventive sci-fi thriller about a time-travel watch and high-stakes paradoxes",
     "moods": [
       "mindbending",
       "highenergy",
@@ -6139,8 +6139,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Elango and his friend Pulivetti come into possession of a time machine and they start profiting from it. However, their meddling with time prevents the death of a gangster, who begins to wreak havoc in their lives.",
-    "vibe": "comedy,  sci-fi,  thriller, acclaimed",
-    "reason": "acclaimed mindbending masterpiece",
+    "vibe": "time travel & loops, 2065 time machine, timeline paradox, sci-fi comedy, inventive rewinding",
+    "reason": "delightfully creative sci-fi comedy about two friends who find a time machine from the future",
     "moods": [
       "mindbending",
       "feelgood",
@@ -6163,8 +6163,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Children investigating a robbery discover a time machine. A couple trying to rescue them gets trapped, leading to adventures in 16th century India under Krishnadevaraya's reign and a distant future world.",
-    "vibe": "action,  adventure,  comedy, acclaimed",
-    "reason": "acclaimed mindbending masterpiece",
+    "vibe": "time travel & loops, Krishnadevaraya empire, futuristic dystopia, time machine classic, 80s 90s vintage",
+    "reason": "India's pioneer time-travel classic taking audiences to the 16th century and future",
     "moods": [
       "mindbending",
       "nostalgic",
@@ -6211,8 +6211,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Two undercover cops who go in search of a fugitive enter another dimension occupied by uncivilized residents who are crass and rude. There, the two men get stuck in an apparent time loop as inexplicable events begin to occur.",
-    "vibe": "fantasy,  mystery,  sci-fi, acclaimed",
-    "reason": "acclaimed mindbending masterpiece",
+    "vibe": "psychological chiller, time loop, reality glitches, labyrinthine forest, mind-bending surreal mystery",
+    "reason": "hallucinatory puzzle box film exploring morality, space-time loops, and wilderness",
     "moods": [
       "mindbending",
       "darkgritty",
@@ -6236,8 +6236,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A man suffering from insomnia is tricked into buying a drug, Lucia, that makes his desires come true in his dreams, blurring the line between fantasy and reality.",
-    "vibe": "drama,  sci-fi,  thriller, acclaimed",
-    "reason": "acclaimed mindbending masterpiece",
+    "vibe": "simulation reality glitches, lucid dream pill, neon noir, shocking plot twist, psychological identity",
+    "reason": "groundbreaking crowd-funded psychological thriller blurring dreaming and reality",
     "moods": [
       "mindbending",
       "latenight",
@@ -6617,8 +6617,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A young carrom player in north Chennai becomes a reluctant participant in a war between two warring gangsters.",
-    "vibe": "action,  crime,  drama, acclaimed",
-    "reason": "acclaimed darkgritty masterpiece",
+    "vibe": "underworld & mafia, gangster cartel, north chennai turf wars, raw crime syndicate, gritty tension",
+    "reason": "definitive Indian gangster epic tracing 30 years of underworld politics",
     "moods": [
       "darkgritty",
       "highenergy",
@@ -6641,8 +6641,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A mob boss must deal with a disgruntled mistress and a vanishing bag of cocaine.",
-    "vibe": "action,  comedy,  crime, acclaimed",
-    "reason": "acclaimed darkgritty masterpiece",
+    "vibe": "underworld & mafia, gangster mob, cocaine bag heist, neo-noir crime syndicate, gritty city streets",
+    "reason": "pioneering Indian neo-noir gangster masterpiece with razor-sharp dialogue",
     "moods": [
       "darkgritty",
       "latenight"
@@ -6664,8 +6664,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A sub-inspector sets out in pursuit of a mysterious serial killer who targets teen school girls and murders them brutally.",
-    "vibe": "crime,  drama,  mystery, acclaimed",
-    "reason": "acclaimed darkgritty masterpiece",
+    "vibe": "serial killer hunt, christopher psychopath, forensic homicide investigation, nail-biting suspense",
+    "reason": "masterclass in edge-of-the-seat serial killer manhunt and psychological horror",
     "moods": [
       "darkgritty",
       "spooky",
@@ -6688,8 +6688,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Siddharth Abimanyu, an influential scientist, is involved in various illegal medical practices. Mithran, an efficient IPS officer, decides to expose him.",
-    "vibe": "action,  crime,  drama, acclaimed",
-    "reason": "acclaimed darkgritty masterpiece",
+    "vibe": "tactical spy, battle of wits, ips mithran vs corporate criminal, smart investigative thriller",
+    "reason": "high-IQ cat-and-mouse game between an idealistic detective and a brilliant villain",
     "moods": [
       "darkgritty",
       "highenergy",
@@ -6712,8 +6712,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A young NSA agent is framed for the murder of his bosses making him realize that now his mission is darker than expected and has some personal scores to settle regarding his father's death, a former NSA agent.",
-    "vibe": "action,  thriller, acclaimed",
-    "reason": "acclaimed darkgritty masterpiece",
+    "vibe": "tactical spy thriller, 116 RAW secret agent, undercover espionage, sniper, tactical assassination",
+    "reason": "sharp modern Indian spy thriller packed with covert twists and espionage",
     "moods": [
       "darkgritty",
       "highenergy"
@@ -6758,8 +6758,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A brilliant investigator plagued by terrifying visual hallucinations must hunt for a missing college student in Rajasthan. The stakes turn personal when his own girlfriend vanishes, forcing him to confront a predatory conspiracy.",
-    "vibe": "crime,  drama,  mystery, acclaimed",
-    "reason": "acclaimed darkgritty masterpiece",
+    "vibe": "serial killer hunt, homicide detective, missing girl investigation, forensic panic attacks",
+    "reason": "taut investigative mystery tracking a PTSD-afflicted homicide detective",
     "moods": [
       "darkgritty",
       "latenight"
@@ -6828,8 +6828,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "The police are on the trail of a serial killer, but with the victims being fellow officers, will they be able to catch the killer and solve the case in time?",
-    "vibe": "crime,  mystery,  thriller, acclaimed",
-    "reason": "acclaimed darkgritty masterpiece",
+    "vibe": "serial killer hunt, forensic psychologist profiling, midnight mystery, dark rainy homicide",
+    "reason": "atmospheric serial killer procedural exploring dark revenge and forensic psychology",
     "moods": [
       "darkgritty",
       "spooky",
@@ -6852,8 +6852,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Sokkan, the trusted confidant of childhood friends Aadhi and Karuna.But when his loyalty and self respect is put into test, which would he choose?",
-    "vibe": "action, acclaimed",
-    "reason": "acclaimed darkgritty masterpiece",
+    "vibe": "blood vengeance, fierce revenge retribution, rural loyalty, explosive action payback",
+    "reason": "gripping rural action drama about blind loyalty turning into ferocious revenge",
     "moods": [
       "darkgritty",
       "latenight"
@@ -6899,8 +6899,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Duniya Soori's Tagaru takes us on a bloody ride through the dark underbelly of the underworld and their clash against the police.",
-    "vibe": "action,  crime, acclaimed",
-    "reason": "acclaimed darkgritty masterpiece",
+    "vibe": "underworld & mafia, dolly gang, ruthless police encounter, non-linear gritty tension",
+    "reason": "stylish, bloody battle between an uncompromising cop and underground dons",
     "moods": [
       "darkgritty",
       "highenergy"
@@ -7439,8 +7439,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A pizza delivery boy lands in a mysterious circumstance and it works a dramatic change in his life.",
-    "vibe": "horror,  mystery,  thriller, acclaimed",
-    "reason": "acclaimed spooky masterpiece",
+    "vibe": "haunted houses & ghosts, pizza delivery haunted bungalow, shocking plot twist, chilling apparition",
+    "reason": "modern horror classic that reinvented haunted house storytelling with a shocking twist",
     "moods": [
       "spooky",
       "mindbending",
@@ -7511,8 +7511,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A young married couple begin to encounter several paranormal attacks, when a family moves into a neighbouring house, that is being haunted by a vengeful spirit, which leads them to perform an exorcism in order to help save the nei...",
-    "vibe": "horror, acclaimed",
-    "reason": "acclaimed spooky masterpiece",
+    "vibe": "haunted houses & ghosts, mountain villa, terrifying demonic spirits, occult exorcism, chilling dread",
+    "reason": "pure unadulterated supernatural horror with terrifying atmospheric dread",
     "moods": [
       "spooky",
       "latenight"
@@ -7534,8 +7534,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "After consuming liquor, four friends decide to do something interesting and visit a haunted bungalow. However, they do not realize that they have returned home with an evil spirit.",
-    "vibe": "horror,  thriller, acclaimed",
-    "reason": "acclaimed spooky masterpiece",
+    "vibe": "haunted houses & ghosts, cursed diamond mansion, midnight urban legend, supernatural apparition",
+    "reason": "spine-chilling haunted house thriller based on Chennai's real urban legend",
     "moods": [
       "spooky",
       "latenight"
@@ -7557,8 +7557,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A brave queen battles an evil mystic. Three generations later, he comes back to haunt the queen's descendants.",
-    "vibe": "horror,  mystery,  thriller, acclaimed",
-    "reason": "acclaimed spooky masterpiece",
+    "vibe": "demonic & occult black magic, evil aghora spirit, reincarnation battle, terrifying supernatural curses",
+    "reason": "epic dark fantasy horror pitting warrior queen Arundhati against an evil sorcerer",
     "moods": [
       "spooky",
       "escapist",
@@ -7581,8 +7581,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "When a man visits his ancestral village, where terror reigns after a chain of unexplained deaths, he must unravel mystical secrets before it's too late.",
-    "vibe": "action,  horror,  mystery, acclaimed",
-    "reason": "acclaimed spooky masterpiece",
+    "vibe": "demonic & occult curse, black magic village deaths, terrifying suspense, occult rituals",
+    "reason": "gripping 1990s period occult horror investigating a deadly black magic curse",
     "moods": [
       "spooky",
       "mindbending",
@@ -7605,8 +7605,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "When a forbidden room in an old bungalow is unbolted, the spirit of a vengeful dancer is unleashed.",
-    "vibe": "comedy,  horror,  mystery, acclaimed",
-    "reason": "acclaimed spooky masterpiece",
+    "vibe": "haunted houses & ghosts, nagavalli spirit, madampalli mansion, psychological split personality, 90s classic",
+    "reason": "the crowning jewel of Indian psychological horror and haunted mansion lore",
     "moods": [
       "spooky",
       "nostalgic",
@@ -7629,8 +7629,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Following the death of a family member, a mother and son experience mysterious events which distort their sense of reality and make them question their sanity.",
-    "vibe": "drama,  horror,  mystery, acclaimed",
-    "reason": "acclaimed spooky masterpiece",
+    "vibe": "psychological chiller, clinical depression, creeping suspense dread, haunted house, claustrophobic fear",
+    "reason": "astonishing psychological horror blending mental illness with chilling supernatural fear",
     "moods": [
       "spooky",
       "cry",
@@ -7653,8 +7653,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Thevan, a folk singer of the Paanan caste, has a fateful encounter when escaping slavery, leading to him discovering an ancient traditional mansion altering his destiny.",
-    "vibe": "drama,  horror,  thriller, acclaimed",
-    "reason": "acclaimed spooky masterpiece",
+    "vibe": "psychological chiller, demonic & occult rituals, crumbling mana, chaathan curse, paranoia dread",
+    "reason": "monochrome period masterpiece of psychological dread, ancient curses, and manipulation",
     "moods": [
       "spooky",
       "darkgritty",
@@ -7701,8 +7701,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Mysterious events begin to unfold after a reclusive novelist and his wife move back to her ancestral village, followed by a journalist.",
-    "vibe": "mystery,  thriller, acclaimed",
-    "reason": "acclaimed spooky masterpiece",
+    "vibe": "psychological chiller, kamarottu village rain, eerie folklore mystery, supernatural suspense",
+    "reason": "rain-drenched psychological thriller steeped in coastal Karnataka folklore and mystery",
     "moods": [
       "spooky",
       "mindbending",
@@ -8204,8 +8204,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A common man's struggles against a corrupt police force put him on the wrong side of the law. He becomes a don, who is loved and respected by many, but his growing power and influence exact a heavy toll.",
-    "vibe": "crime,  drama, acclaimed",
-    "reason": "acclaimed nostalgic masterpiece",
+    "vibe": "underworld & mafia, velu naicker don, classic 80s golden era, dharavi godfather crime syndicate",
+    "reason": "TIME magazine all-time 100 masterpiece chronicling the rise of a Mumbai underworld don",
     "moods": [
       "nostalgic",
       "darkgritty",
@@ -8228,8 +8228,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "An orphan named Surya raised in a slum befriends a good crime boss named Devaraj and works for him. Their existence is threatened when a new honest district collector arrives.",
-    "vibe": "action,  crime,  drama, acclaimed",
-    "reason": "acclaimed nostalgic masterpiece",
+    "vibe": "underworld & mafia godfather, surya and deva brotherhood, 90s golden era, raw crime empire",
+    "reason": "Mani Ratnam's legendary underworld adaptation of the Mahabharata friendship",
     "moods": [
       "nostalgic",
       "darkgritty",
@@ -8253,8 +8253,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Two men, one young and arrogant, the other damaged - physically but not spiritually - by life, are thrown together by circumstances, and find that they are in some ways bound together by fate.",
-    "vibe": "adventure,  comedy,  drama, acclaimed",
-    "reason": "acclaimed nostalgic masterpiece",
+    "vibe": "friendship road trip, hilarious comedy, philosophical wisdom, inspiring empathy, classic cinema",
+    "reason": "masterpiece road trip of two strangers discovering unexpected friendship",
     "moods": [
       "nostalgic",
       "feelgood",
@@ -8325,8 +8325,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Balarama promises Subhadra to get his daughter married to her son. But when the Pandavas loses their kingdom to the Kaurava's, Balarama breaks his promise.",
-    "vibe": "comedy,  drama, acclaimed",
-    "reason": "acclaimed nostalgic masterpiece",
+    "vibe": "mythological epics, 1957 golden age masterpiece, Sasirekha Parinayam, Ghatotkacha magic, classic cinema",
+    "reason": "voted the greatest Indian film of all time, a dazzling mythological comedy epic",
     "moods": [
       "nostalgic",
       "escapist",
@@ -8373,8 +8373,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "After losing their jobs in Kerala, Dasan and Vijayan decide to migrate to the Middle East. But they end up in Tamil Nadu where they are mistaken as two CID officers by a group of smugglers.",
-    "vibe": "comedy, acclaimed",
-    "reason": "acclaimed nostalgic masterpiece",
+    "vibe": "laugh-out-loud comedy, hilarious duo, unemployment dreams, satire, 80s golden era classic",
+    "reason": "iconic comedy of Dasan and Vijayan dreaming big and making audiences roar with laughter",
     "moods": [
       "nostalgic",
       "feelgood",
@@ -8397,8 +8397,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Four young men are enamored by Maya, their next-door neighbor. However, she is in town to investigate the mysterious circumstances surrounding the death of her brother.",
-    "vibe": "comedy,  crime,  mystery, acclaimed",
-    "reason": "acclaimed nostalgic masterpiece",
+    "vibe": "laugh-out-loud comedy, four buddies gang, hilarious friendship, comic misadventures, 90s golden era",
+    "reason": "legendary comedy of four bachelor friends and their hilarious antics",
     "moods": [
       "nostalgic",
       "feelgood",
@@ -8445,8 +8445,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A tourist guide in Ooty shelters a mentally unstable woman in return for the reward offered by her relatives. Later, he comes to know that she is in danger from her relatives.",
-    "vibe": "comedy, acclaimed",
-    "reason": "acclaimed nostalgic masterpiece",
+    "vibe": "laugh-out-loud comedy, hilarious romance, witty banter, charming feel-good, 90s classic",
+    "reason": "the benchmark of Malayalam laugh-out-loud comedy and warm romance",
     "moods": [
       "nostalgic",
       "feelgood",
@@ -8947,8 +8947,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A sequel to Karthikeya (2014), which deals with the personal problems of Karthikeya and how his pursuit of the truth leads him to find out the power of Indian ancient system and Tatva of Lord Sri Krishna.",
-    "vibe": "action,  adventure,  fantasy, acclaimed",
-    "reason": "acclaimed escapist masterpiece",
+    "vibe": "mythological epics, quest for Lord Krishna's anklet, ancient Dwarka exploration, treasure hunt",
+    "reason": "exhilarating quest adventure uncovering the hidden science and mythology of Lord Krishna",
     "moods": [
       "escapist",
       "mindbending",
@@ -8971,8 +8971,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "An imaginary place called Anjanadri where the protagonist gets the powers of Hanuman and fights for Anjanadri.",
-    "vibe": "action,  adventure,  fantasy, acclaimed",
-    "reason": "acclaimed escapist masterpiece",
+    "vibe": "mythological epics, Lord Hanuman divine superpowers, high fantasy & magic, blockbuster hero",
+    "reason": "soaring superhero fantasy rooted deeply in Indian mythology and devotional awe",
     "moods": [
       "escapist",
       "highenergy",
@@ -8995,8 +8995,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A street-bike racer chances upon a woman and is struck by visions of a past life where they were both star-crossed lovers in a war-ridden kingdom 400 years ago, while the reincarnation of his romantic rival emerges with murderous ...",
-    "vibe": "action,  drama,  fantasy, acclaimed",
-    "reason": "acclaimed escapist masterpiece",
+    "vibe": "destiny & soulmates, 400-year reincarnation romance, high fantasy warrior, epic kingdoms",
+    "reason": "sweeping romantic fantasy about destined soulmates reborn across four centuries",
     "moods": [
       "escapist",
       "highenergy",
@@ -9067,8 +9067,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Dharma is stuck in a rut with his negative and lonely lifestyle and spends each day in the comfort of his loneliness. A pup named Charlie enters his life and gives him a new perspective towards it.",
-    "vibe": "adventure,  comedy,  drama, acclaimed",
-    "reason": "acclaimed escapist masterpiece",
+    "vibe": "inspiring underdog, road trip journey, loyalty, dog friendship, emotional tearjerker, grief & farewell",
+    "reason": "inspiring underdog journey of a lonely man and his rescued dog traveling across India",
     "moods": [
       "escapist",
       "feelgood",
@@ -9595,8 +9595,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "The accidental discovery of human bones during a road-widening project leads a local traffic cop into the mystery of a 40-year-old case. His investigation leads him across trails that will put his wit, resolve and morals to the test.",
-    "vibe": "crime,  drama,  mystery, acclaimed",
-    "reason": "acclaimed latenight masterpiece",
+    "vibe": "corrupt cops & detectives, 1970s cold case bones mystery, traffic cop sleuth, neo-noir mystery",
+    "reason": "atmospheric retro neo-noir tracking a cold case investigation across decades",
     "moods": [
       "latenight",
       "darkgritty",
@@ -9619,8 +9619,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "After a cop is found dead, a policeman's investigation starts a chilling search for the truth connected to his fraught past.",
-    "vibe": "crime,  drama,  thriller, acclaimed",
-    "reason": "acclaimed latenight masterpiece",
+    "vibe": "corrupt cops & detectives, twin brother police mystery, shocking plot twist, dark gritty noir",
+    "reason": "haunting police drama culminating in one of Indian cinema's most shocking twists",
     "moods": [
       "latenight",
       "darkgritty",
@@ -9691,8 +9691,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Three police officers who are on a run for life, escaping the outbreak against them due to the unlawful arrest and torture of a civilian. It brings in a few shades of arrogant yet very much human police officers and their helpless...",
-    "vibe": "crime,  thriller, acclaimed",
-    "reason": "acclaimed latenight masterpiece",
+    "vibe": "corrupt cops & detectives, framed police officers, election politics, gritty survival suspense",
+    "reason": "chilling realistic thriller showing how systemic corruption consumes ordinary cops",
     "moods": [
       "latenight",
       "darkgritty"
@@ -10378,8 +10378,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "Creepy happenings in an abandoned mansion are attributed to the ghost of an ancient courtesan, back for revenge.",
-    "vibe": "action,  comedy,  drama, acclaimed",
-    "reason": "acclaimed spooky masterpiece",
+    "vibe": "haunted houses & ghosts, vettaiyan palace, comedy horror, supernatural spirit possession",
+    "reason": "blockbuster horror entertainer featuring iconic haunted palace mythology",
     "moods": [
       "spooky",
       "highenergy",
@@ -11051,8 +11051,8 @@ const RAW_MOVIES = [
     "industry": "South Indian",
     "flag": "🔥",
     "blurb": "A pregnant woman comes under the protection of an immortal warrior while being tracked down by bounty hunters.",
-    "vibe": "action,  adventure,  sci-fi, acclaimed",
-    "reason": "acclaimed escapist masterpiece",
+    "vibe": "mythological epics, grand space opera, futuristic sci-fi dystopia, Mahabharata Ashwatthama, epic quest",
+    "reason": "colossal mythological sci-fi adventure uniting the ancient Kurukshetra war with the future",
     "moods": [
       "escapist",
       "mindbending",
@@ -11822,7 +11822,7 @@ export function resolveMood(q, explicitMood) {
   return null;
 }
 
-export function getCuratedRecommendations(queryText = "", typeFilter = "all", limit = 150, languageFilter = "all", explicitMood = null) {
+export function getCuratedRecommendations(queryText = "", typeFilter = "all", limit = 150, languageFilter = "all", explicitMood = null, suggestionLabel = null) {
   const q = (queryText || "").toLowerCase().trim();
   const lang = (languageFilter || "all").toLowerCase().trim();
   const targetMood = resolveMood(q, explicitMood);
@@ -11870,14 +11870,22 @@ export function getCuratedRecommendations(queryText = "", typeFilter = "all", li
 
   // If no query and no mood, return highest rated in requested language & type
   if (!q && !targetMood) {
+    const seen = new Set();
     return CURATED_MEDIA
       .filter(item => (typeFilter === "all" || item.type === typeFilter) && matchesLanguage(item))
+      .filter(item => {
+        const norm = (item.title || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+        if (seen.has(norm)) return false;
+        seen.add(norm);
+        return true;
+      })
       .sort((a, b) => (b.rating || 0) - (a.rating || 0))
       .slice(0, limit);
   }
 
   // 1. IF A MOOD WAS REQUESTED OR DETECTED:
   if (targetMood) {
+    const seen = new Set();
     const matchingItems = CURATED_MEDIA.filter(item => {
       if (typeFilter !== "all" && item.type !== typeFilter) return false;
       if (!matchesLanguage(item)) return false;
@@ -11892,31 +11900,43 @@ export function getCuratedRecommendations(queryText = "", typeFilter = "all", li
         return false;
       }
 
+      // Deduplicate titles
+      const norm = (item.title || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+      if (seen.has(norm)) return false;
+      seen.add(norm);
+
       return true;
     });
 
     // Check if user specified suggestions or keywords (beyond the default generic mood prompt)
     const isGenericDefaultPrompt = Boolean(PROMPT_TO_MOOD[q] || q === targetMood);
-    const suggestionTokens = isGenericDefaultPrompt 
+    const textTokens = isGenericDefaultPrompt 
       ? [] 
       : q.split(/[\s,+/&-]+/).filter(t => t.length > 2 && t !== targetMood);
+    const cleanLabel = (suggestionLabel || "").toLowerCase().replace(/[^\w\s]/g, " ").trim();
+    const labelTokens = cleanLabel 
+      ? cleanLabel.split(/\s+/).filter(t => t.length > 2 && t !== targetMood)
+      : [];
+    const suggestionTokens = [...new Set([...textTokens, ...labelTokens])];
 
     // Score within the mood for best ordering (primary tag bonus + rating + suggestion boost)
     const scored = matchingItems.map(item => {
       let score = (item.rating || 7.5) * 10;
       if (item.moods && item.moods[0] === targetMood) score += 25;
 
+      const itemTitle = (item.title || "").toLowerCase();
+      const itemCreator = (item.creator || "").toLowerCase();
+      const itemCast = (item.cast || "").toLowerCase();
+      const itemGenre = (item.genre || "").toLowerCase();
+      const itemVibe = (item.vibe || "").toLowerCase();
+      const itemBlurb = (item.blurb || "").toLowerCase();
+      const itemReason = (item.reason || "").toLowerCase();
+      const itemText = `${itemTitle} ${itemGenre} ${itemVibe} ${itemBlurb} ${itemReason} ${itemCast} ${itemCreator}`;
+
       // When specific suggestions or query keywords are active, boost matching items heavily
       if (suggestionTokens.length > 0) {
-        const itemTitle = (item.title || "").toLowerCase();
-        const itemCreator = (item.creator || "").toLowerCase();
-        const itemCast = (item.cast || "").toLowerCase();
-        const itemGenre = (item.genre || "").toLowerCase();
-        const itemVibe = (item.vibe || "").toLowerCase();
-        const itemBlurb = (item.blurb || "").toLowerCase();
-        const itemReason = (item.reason || "").toLowerCase();
-
         // Exact query substring bonus
+        if (cleanLabel && itemText.includes(cleanLabel)) score += 350;
         if (itemTitle.includes(q)) score += 350;
         if (itemGenre.includes(q)) score += 220;
         if (itemVibe.includes(q)) score += 180;
@@ -11927,15 +11947,25 @@ export function getCuratedRecommendations(queryText = "", typeFilter = "all", li
 
         // Individual suggestion token bonuses
         for (const token of suggestionTokens) {
-          if (itemTitle.includes(token)) score += 70;
-          if (itemGenre.includes(token)) score += 55;
-          if (itemVibe.includes(token)) score += 45;
+          if (itemTitle.includes(token)) score += 90;
+          if (itemVibe.includes(token)) score += 75;
+          if (itemGenre.includes(token)) score += 65;
+          if (itemReason.includes(token)) score += 50;
+          if (itemBlurb.includes(token)) score += 40;
           if (itemCast.includes(token)) score += 40;
           if (itemCreator.includes(token)) score += 35;
-          if (itemBlurb.includes(token)) score += 25;
-          if (itemReason.includes(token)) score += 30;
         }
       }
+
+      // Add deterministic tie-breaker based on suggestion and item ID
+      // so that non-matching items also shuffle and vary between suggestions
+      const seedStr = (suggestionLabel || q || targetMood) + (item.id || item.title);
+      let hash = 0;
+      for (let i = 0; i < seedStr.length; i++) {
+        hash = ((hash << 5) - hash) + seedStr.charCodeAt(i);
+        hash |= 0;
+      }
+      score += (Math.abs(hash) % 15);
 
       return { item, score };
     });

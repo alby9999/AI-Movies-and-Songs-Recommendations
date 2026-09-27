@@ -1269,8 +1269,8 @@ ${suggestion ? `2. SELECTED SUGGESTION FOCUS: The user explicitly selected the s
   let results = [];
 
   if (exactMood) {
-    console.log(`🎬 Serving curated mood recommendations for: "${queryClean}" [Mood: ${exactMood}, Lang: ${language}, Type: ${type}]`);
-    const curatedMatches = getCuratedRecommendations(queryClean, type, 150, language, exactMood);
+    console.log(`🎬 Serving curated mood recommendations for: "${queryClean}" [Mood: ${exactMood}, Lang: ${language}, Type: ${type}, Suggestion: ${suggestion || "none"}]`);
+    const curatedMatches = getCuratedRecommendations(queryClean, type, 150, language, exactMood, suggestion);
 
     // If type is song, or all, pull comprehensive live songs matching the mood/theme/language!
     if (type === "song") {
@@ -1306,7 +1306,7 @@ ${suggestion ? `2. SELECTED SUGGESTION FOCUS: The user explicitly selected the s
     if (type === "song") {
       const [liveSongs, curatedSongs] = await Promise.all([
         searchAllSongsEver(queryClean, language),
-        getCuratedRecommendations(queryClean, "song", 100, language, null)
+        getCuratedRecommendations(queryClean, "song", 100, language, null, suggestion)
       ]);
       const seen = new Set();
       const combined = [];
@@ -1320,7 +1320,7 @@ ${suggestion ? `2. SELECTED SUGGESTION FOCUS: The user explicitly selected the s
       results = combined;
     } else if (type === "movie") {
       const [curatedMatches, globalMatches] = await Promise.all([
-        getCuratedRecommendations(queryClean, "movie", 100, language, null),
+        getCuratedRecommendations(queryClean, "movie", 100, language, null, suggestion),
         searchAllMoviesEver(queryClean, language)
       ]);
       const seen = new Set();
@@ -1336,7 +1336,7 @@ ${suggestion ? `2. SELECTED SUGGESTION FOCUS: The user explicitly selected the s
     } else {
       // Type is "all": search both movies and songs
       const [curatedMatches, globalMovies, liveSongs] = await Promise.all([
-        getCuratedRecommendations(queryClean, "all", 100, language, null),
+        getCuratedRecommendations(queryClean, "all", 100, language, null, suggestion),
         searchAllMoviesEver(queryClean, language),
         searchAllSongsEver(queryClean, language)
       ]);

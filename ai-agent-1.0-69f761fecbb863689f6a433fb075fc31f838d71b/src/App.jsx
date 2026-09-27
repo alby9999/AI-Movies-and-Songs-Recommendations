@@ -1969,12 +1969,14 @@ function Discover({
   }, []);
 
   useEffect(() => {
-    setIsFeedLoading(true);
-    fetchLiveTrending(selectedLanguage, typeFilter).then((data) => {
-      setLiveFeed(data);
-      setIsFeedLoading(false);
-    });
-  }, [selectedLanguage, typeFilter]);
+    if (!hasSearched && !activeMoodId) {
+      setIsFeedLoading(true);
+      fetchLiveTrending(selectedLanguage, typeFilter).then((data) => {
+        setLiveFeed(data);
+        setIsFeedLoading(false);
+      });
+    }
+  }, [selectedLanguage, typeFilter, hasSearched, activeMoodId]);
 
   // Handle Logo Click Reset Trigger
   useEffect(() => {
