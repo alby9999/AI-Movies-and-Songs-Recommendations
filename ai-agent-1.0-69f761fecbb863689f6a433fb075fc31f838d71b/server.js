@@ -1451,6 +1451,23 @@ app.get("/api/health", (_req, res) => {
 });
 
 /* --------------------------------------------------------------- */
+/* PRODUCTION STATIC ASSETS SERVING                                */
+/* --------------------------------------------------------------- */
+const distPath = path.join(process.cwd(), "dist");
+if (fs.existsSync(distPath)) {
+  app.use(express.static(distPath));
+  app.use((req, res, next) => {
+    if (req.method === "GET" && !req.path.startsWith("/api")) {
+      const indexHtml = path.join(distPath, "index.html");
+      if (fs.existsSync(indexHtml)) {
+        return res.sendFile(indexHtml);
+      }
+    }
+    next();
+  });
+}
+
+/* --------------------------------------------------------------- */
 /* GLOBAL SAFETY NETS                                              */
 /* --------------------------------------------------------------- */
 

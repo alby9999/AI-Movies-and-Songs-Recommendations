@@ -1,0 +1,10 @@
+{
+  "name": "ai-movies-and-songs-root",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "cd ai-agent-1.0-69f761fecbb863689f6a433fb075fc31f838d71b && npm install && npm run build",
+    "start": "cd ai-agent-1.0-69f761fecbb863689f6a433fb075fc31f838d71b && node server.js"
+  }
+}
