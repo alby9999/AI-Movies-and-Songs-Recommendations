@@ -5896,7 +5896,15 @@ export default function App() {
             )}
 
             {activeTab === "profile" && (
-              <ProfileDashboard user={profile} />
+              <ProfileDashboard 
+                user={profile} 
+                savedMedia={savedMedia}
+                onToggleWatchlist={toggleWatchlist}
+                onToggleFavourite={toggleFavourite}
+                playingAudioId={playingSongId}
+                onTogglePlaySong={handleTogglePlaySong}
+                onNavigateTab={setActiveTab}
+              />
             )}
           </div>
 
