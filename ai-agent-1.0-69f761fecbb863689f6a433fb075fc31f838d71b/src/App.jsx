@@ -46,6 +46,7 @@ import {
   Headphones,
 } from "lucide-react";
 import MusicPlayerApp from "./MusicPlayerApp";
+import ProfileDashboard from "./ProfileDashboard";
 
 /* --------------------------------------------------------------- */
 /* CONSTANTS & SETUP                                               */
@@ -163,6 +164,7 @@ const NAV_TABS = [
   { id: "music", label: "Music & Songs", icon: Music },
   { id: "watchlist", label: "Watchlist", icon: Bookmark },
   { id: "favourites", label: "Favourites", icon: Heart },
+  { id: "profile", label: "Profile", icon: User },
 ];
 
 // DEEP ABYSS GRADIENTS
@@ -5893,7 +5895,9 @@ export default function App() {
               />
             )}
 
-
+            {activeTab === "profile" && (
+              <ProfileDashboard user={profile} />
+            )}
           </div>
 
           <ApiKeyModal 
