@@ -46,7 +46,6 @@ import {
   Headphones,
 } from "lucide-react";
 import MusicPlayerApp from "./MusicPlayerApp";
-import ProfileDashboard from "./ProfileDashboard";
 
 /* --------------------------------------------------------------- */
 /* CONSTANTS & SETUP                                               */
@@ -161,10 +160,9 @@ const MOOD_SUGGESTIONS = {
 
 const NAV_TABS = [
   { id: "discover", label: "Discover", icon: Compass },
-  { id: "music", label: "Music & Songs", icon: Music },
+  { id: "music", label: "Music", icon: Music },
   { id: "watchlist", label: "Watchlist", icon: Bookmark },
   { id: "favourites", label: "Favourites", icon: Heart },
-  { id: "profile", label: "Profile", icon: User },
 ];
 
 // DEEP ABYSS GRADIENTS
@@ -1780,7 +1778,7 @@ function AuthScreen({ onLogin, onGuestExplore, theme = "dark", onToggleTheme }) 
           </div>
           <div className="rr-auth-badge">
             <Sparkles size={16} color="var(--accent)" />
-            <span>AI CINEMA &bull; SONGS &bull; LYRICS</span>
+            <span>AI CINEMA &bull; MUSIC &bull; LYRICS</span>
           </div>
           <h1 className="rr-auth-title">Vibescape</h1>
           <p className="rr-auth-subtitle">
@@ -2189,7 +2187,7 @@ function Discover({
           <>
             <div className="rr-hero-badge">
               <Sparkles size={14} color="var(--accent)" />
-              <span>BOLLYWOOD &bull; HOLLYWOOD &bull; SOUTH INDIAN &bull; SONGS</span>
+              <span>BOLLYWOOD &bull; HOLLYWOOD &bull; SOUTH INDIAN &bull; MUSIC</span>
             </div>
             <h1 className="rr-hero__title">Explore Cinema &amp; Songs by Mood</h1>
             <p className="rr-hero__desc">
@@ -2380,7 +2378,7 @@ function Discover({
                   setCurrentPage(1);
                 }}
               >
-                {type === "all" ? "All Media" : type === "movie" ? "Movies Only" : "Songs Only"}
+                {type === "all" ? "All Media" : type === "movie" ? "Movies Only" : "Music Only"}
               </button>
             ))}
           </div>
@@ -5789,7 +5787,7 @@ export default function App() {
                 <img src="/vibescape-logo.png" alt="Vibescape Logo" className="rr-brand-logo-img" />
               </div>
               <span className="rr-logo">Vibescape</span>
-              <span className="rr-brand-tag">AI CINEMA &amp; SONGS</span>
+              <span className="rr-brand-tag">AI CINEMA &amp; MUSIC</span>
             </div>
 
             <nav className="rr-nav">
@@ -5892,18 +5890,6 @@ export default function App() {
                 onToggleWatchlist={toggleWatchlist} 
                 playingAudioId={playingSongId}
                 onTogglePlaySong={handleTogglePlaySong}
-              />
-            )}
-
-            {activeTab === "profile" && (
-              <ProfileDashboard 
-                user={profile} 
-                savedMedia={savedMedia}
-                onToggleWatchlist={toggleWatchlist}
-                onToggleFavourite={toggleFavourite}
-                playingAudioId={playingSongId}
-                onTogglePlaySong={handleTogglePlaySong}
-                onNavigateTab={setActiveTab}
               />
             )}
           </div>
