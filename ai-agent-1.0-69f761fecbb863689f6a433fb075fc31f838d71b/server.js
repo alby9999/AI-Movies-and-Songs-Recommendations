@@ -858,15 +858,26 @@ async function searchAllMoviesEver(queryClean, languageFilter = "all") {
   });
 
   let filtered = mapped.filter(item => matchesLanguageFilter(item, languageFilter));
-  if (filtered.length === 0 && mapped.length > 0) {
+  if (filtered.length === 0 && mapped.length > 0 && languageFilter === "all") {
     filtered = mapped;
   }
   for (const item of exactOrClose) {
-    if (!filtered.some(f => f.id === item.id)) {
+    if (matchesLanguageFilter(item, languageFilter) && !filtered.some(f => f.id === item.id)) {
       filtered.unshift(item);
     }
   }
-  return filtered;
+
+  // Strictly deduplicate movies by normalized title
+  const seenTitles = new Set();
+  const titleDeduped = [];
+  for (const item of filtered) {
+    const norm = (item.title || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+    if (!seenTitles.has(norm)) {
+      seenTitles.add(norm);
+      titleDeduped.push(item);
+    }
+  }
+  return titleDeduped;
 }
 
 app.get("/api/trending", async (req, res) => {
@@ -1289,7 +1300,7 @@ ${suggestion ? `2. SELECTED SUGGESTION FOCUS: The user explicitly selected the s
       const seen = new Set();
       const combined = [];
       for (const item of [...curatedMatches, ...liveSongs]) {
-        const norm = ((item.title || "") + " " + (item.creator || "")).toLowerCase().replace(/[^a-z0-9]/g, "");
+        const norm = `${item.type || 'song'}:${(item.title || "").toLowerCase().replace(/[^a-z0-9]/g, "")}`;
         if (!seen.has(norm)) {
           seen.add(norm);
           combined.push(item);
@@ -1311,7 +1322,7 @@ ${suggestion ? `2. SELECTED SUGGESTION FOCUS: The user explicitly selected the s
       const seen = new Set();
       const combined = [];
       for (const item of [...curatedSongs, ...liveSongs]) {
-        const norm = (item.title + " " + item.creator).toLowerCase().replace(/[^a-z0-9]/g, "");
+        const norm = `${item.type || 'song'}:${(item.title || "").toLowerCase().replace(/[^a-z0-9]/g, "")}`;
         if (!seen.has(norm)) {
           seen.add(norm);
           combined.push(item);
@@ -1325,7 +1336,7 @@ ${suggestion ? `2. SELECTED SUGGESTION FOCUS: The user explicitly selected the s
       ]);
       const seen = new Set();
       const combined = [];
-      for (const item of [...globalMatches, ...curatedMatches]) {
+      for (const item of [...curatedMatches, ...globalMatches]) {
         const norm = (item.title || "").toLowerCase().replace(/[^a-z0-9]/g, "");
         if (!seen.has(norm)) {
           seen.add(norm);
@@ -1342,8 +1353,8 @@ ${suggestion ? `2. SELECTED SUGGESTION FOCUS: The user explicitly selected the s
       ]);
       const seen = new Set();
       const combined = [];
-      for (const item of [...globalMovies, ...liveSongs, ...curatedMatches]) {
-        const norm = ((item.title || "") + " " + (item.creator || "")).toLowerCase().replace(/[^a-z0-9]/g, "");
+      for (const item of [...curatedMatches, ...globalMovies, ...liveSongs]) {
+        const norm = `${item.type || 'item'}:${(item.title || "").toLowerCase().replace(/[^a-z0-9]/g, "")}`;
         if (!seen.has(norm)) {
           seen.add(norm);
           combined.push(item);

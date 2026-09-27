@@ -2029,16 +2029,16 @@ function Discover({
   const handleLanguageSelect = (langId) => {
     setSelectedLanguage(langId);
     setCurrentPage(1);
-    if (hasSearched || activeMoodId) {
-      const currentSub = activeMoodId && activeSuggestionId 
+    if (activeMoodId) {
+      const currentSub = activeSuggestionId 
         ? MOOD_SUGGESTIONS[activeMoodId]?.find(s => s.id === activeSuggestionId) 
         : null;
       const searchQuery = currentSub
         ? currentSub.query
-        : activeMoodId 
-          ? (MOODS.find(m => m.id === activeMoodId)?.prompt || query)
-          : (query.trim() || "top acclaimed");
+        : (MOODS.find(m => m.id === activeMoodId)?.prompt || "acclaimed movies");
       runSearch(searchQuery, activeMoodId, langId, currentSub?.label);
+    } else if (hasSearched && query.trim()) {
+      runSearch(query.trim(), null, langId);
     } else {
       setIsFeedLoading(true);
       fetchLiveTrending(langId, typeFilter).then((data) => {
@@ -2062,7 +2062,7 @@ function Discover({
   };
 
   useEffect(() => {
-    if (hasSearched) {
+    if (hasSearched || activeMoodId) {
       const currentSub = activeMoodId && activeSuggestionId 
         ? MOOD_SUGGESTIONS[activeMoodId]?.find(s => s.id === activeSuggestionId) 
         : null;
@@ -2106,7 +2106,21 @@ function Discover({
     });
   };
   
-  const activeList = byOtt(byType(showHeadline ? liveFeed : aiResults));
+  const rawActiveList = byOtt(byType(showHeadline ? liveFeed : aiResults));
+
+  // Bulletproof Deduplication: Ensure each item title and ID is strictly unique
+  const seenActiveIds = new Set();
+  const seenActiveTitles = new Set();
+  const activeList = rawActiveList.filter((item) => {
+    if (!item) return false;
+    const idKey = item.id ? String(item.id) : null;
+    const titleKey = `${item.type || 'm'}:${(item.title || '').toLowerCase().trim().replace(/[^a-z0-9]/g, '')}`;
+    if (idKey && seenActiveIds.has(idKey)) return false;
+    if (titleKey && seenActiveTitles.has(titleKey)) return false;
+    if (idKey) seenActiveIds.add(idKey);
+    if (titleKey) seenActiveTitles.add(titleKey);
+    return true;
+  });
 
   const displayList = activeList.map((result) => {
     const saved = savedMedia.find((s) => s.id === result.id || s.media_id === result.id);

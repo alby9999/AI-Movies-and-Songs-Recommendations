@@ -2281,7 +2281,7 @@ const RAW_MOVIES = [
     "cast": "Song Kang-ho, Kim Sang-kyung, Kim Roe-ha"
   },
   {
-    "id": "hol-ro-3",
+    "id": "hol-ro-notebook",
     "type": "movie",
     "title": "The Notebook",
     "creator": "Nick Cassavetes",
@@ -2640,7 +2640,7 @@ const RAW_MOVIES = [
     "cast": "Ben Affleck, Lawrence Bender, Matt Damon, Minnie Driver"
   },
   {
-    "id": "hol-fg-4",
+    "id": "hol-fg-school-of-rock",
     "type": "movie",
     "title": "School of Rock",
     "creator": "Richard Linklater",
@@ -4277,29 +4277,6 @@ const RAW_MOVIES = [
     "poster": "https://m.media-amazon.com/images/M/MV5BYmJkMDk2YzUtODdlNS00MmFhLWEwMjctYjY1MzI2YzBjODIyXkEyXkFqcGc@._V1_QL75_UY562_CR4,0,380,562_.jpg",
     "artworkUrl": "https://m.media-amazon.com/images/M/MV5BYmJkMDk2YzUtODdlNS00MmFhLWEwMjctYjY1MzI2YzBjODIyXkEyXkFqcGc@._V1_QL75_UY562_CR4,0,380,562_.jpg",
     "cast": "Sai Pallavi, Kaali Venkat, Saravanan"
-  },
-  {
-    "id": "cur-tt10300570",
-    "type": "movie",
-    "title": "Kadaisi Vivasayi",
-    "creator": "M. Manikandan",
-    "year": "2022",
-    "genre": "Drama",
-    "duration": "122 min",
-    "rating": 8.7,
-    "language": "Tamil",
-    "industry": "South Indian",
-    "flag": "🔥",
-    "blurb": "The last active farmer in a remote village tries to hold out against a property developer.",
-    "vibe": "inspiring underdog, peaceful agriculture, selfless sacrifice, 80-year-old farmer, village unity, dignity",
-    "reason": "heartwarming underdog tribute to traditional farming and ancient wisdom",
-    "moods": [
-      "cry",
-      "feelgood"
-    ],
-    "poster": "https://m.media-amazon.com/images/M/MV5BNTUzOWFmYTQtZGFmYi00N2Y0LWFiNmYtMzgxMGNkYzJmYTBiXkEyXkFqcGc@._V1_QL75_UY562_CR13,0,380,562_.jpg",
-    "artworkUrl": "https://m.media-amazon.com/images/M/MV5BNTUzOWFmYTQtZGFmYi00N2Y0LWFiNmYtMzgxMGNkYzJmYTBiXkEyXkFqcGc@._V1_QL75_UY562_CR13,0,380,562_.jpg",
-    "cast": "Nallandi, Vijay Sethupathi, Yogi Babu"
   },
   {
     "id": "cur-tt8176054",
@@ -9055,30 +9032,6 @@ const RAW_MOVIES = [
     "cast": "Tovino Thomas, Guru Somasundaram, Aju Varghese"
   },
   {
-    "id": "cur-tt7466810",
-    "type": "movie",
-    "title": "777 Charlie",
-    "creator": "Kiranraj K",
-    "year": "2022",
-    "genre": "Adventure, Comedy, Drama",
-    "duration": "164 min",
-    "rating": 8.7,
-    "language": "Kannada",
-    "industry": "South Indian",
-    "flag": "🔥",
-    "blurb": "Dharma is stuck in a rut with his negative and lonely lifestyle and spends each day in the comfort of his loneliness. A pup named Charlie enters his life and gives him a new perspective towards it.",
-    "vibe": "inspiring underdog, road trip journey, loyalty, dog friendship, emotional tearjerker, grief & farewell",
-    "reason": "inspiring underdog journey of a lonely man and his rescued dog traveling across India",
-    "moods": [
-      "escapist",
-      "feelgood",
-      "cry"
-    ],
-    "poster": "https://m.media-amazon.com/images/M/MV5BOWY4MzlmNjItZGYzMS00ZDVhLWI2ZDMtNWEwZTBiMmU0YzQ4XkEyXkFqcGc@._V1_SX300.jpg",
-    "artworkUrl": "https://m.media-amazon.com/images/M/MV5BOWY4MzlmNjItZGYzMS00ZDVhLWI2ZDMtNWEwZTBiMmU0YzQ4XkEyXkFqcGc@._V1_SX300.jpg",
-    "cast": "Rakshit Shetty, Charlie, Sangeetha Sringeri"
-  },
-  {
     "id": "cur-tt12015102",
     "type": "movie",
     "title": "Vikrant Rona",
@@ -12014,9 +11967,15 @@ export function getCuratedRecommendations(queryText = "", typeFilter = "all", li
     return { item, score: textScore + ((item.rating || 7) * 2) };
   });
 
-  return scored
-    .filter(s => s.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .map(s => s.item)
-    .slice(0, limit);
+  const seenFreeform = new Set();
+  const uniqueScored = [];
+  for (const s of scored.filter(s => s.score > 0).sort((a, b) => b.score - a.score)) {
+    const norm = (s.item.title || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+    if (!seenFreeform.has(norm)) {
+      seenFreeform.add(norm);
+      uniqueScored.push(s.item);
+    }
+  }
+
+  return uniqueScored.slice(0, limit);
 }
