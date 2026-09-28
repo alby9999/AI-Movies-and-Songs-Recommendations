@@ -46,6 +46,8 @@ import {
   Headphones,
 } from "lucide-react";
 import MusicPlayerApp from "./MusicPlayerApp";
+import TasteProfile from "./TasteProfile";
+import "./TasteProfile.css";
 
 /* --------------------------------------------------------------- */
 /* CONSTANTS & SETUP                                               */
@@ -177,7 +179,14 @@ const GRADIENTS = [
   "linear-gradient(135deg, #102447, #040a14)",
 ];
 
-const BACKEND_URL = "http://localhost:5001";
+const BACKEND_URL =
+  typeof window !== "undefined" &&
+  (window.location.port === "5173" ||
+    window.location.port === "5001" ||
+    window.location.port === "5000" ||
+    window.location.port === "5002")
+    ? ""
+    : (import.meta.env.VITE_BACKEND_URL || "http://localhost:5001");
 
 export const getLyricsSearchUrl = (title, artist, existingUrl) => {
   if (existingUrl && !existingUrl.includes("genius.com/search")) {
@@ -2943,6 +2952,7 @@ export default function App() {
   const [query, setQuery] = useState("");
   const [typeFilter, setTypeFilter] = useState("all");
   const [apiKeyModalOpen, setApiKeyModalOpen] = useState(false);
+  const [profileModalOpen, setProfileModalOpen] = useState(false);
   const [resetTrigger, setResetTrigger] = useState(0);
 
   const handleLogoClick = () => {
@@ -2954,15 +2964,26 @@ export default function App() {
   };
 
   useEffect(() => {
-    if (profile && profile.id && !profile.isGuest) {
-      safeFetch(`${BACKEND_URL}/api/media/${profile.id}`)
-        .then(response => {
-          if (response.data.items) {
-            const mapped = response.data.items.map(i => ({ ...i, id: i.media_id }));
-            setSavedMedia(mapped);
+    if (profile && profile.id) {
+      if (profile.isGuest) {
+        try {
+          const guestSaved = localStorage.getItem("echo_abyss_guest_media");
+          if (guestSaved) {
+            setSavedMedia(JSON.parse(guestSaved));
           }
-        })
-        .catch(err => console.error("Failed to load saved data", err));
+        } catch (e) {
+          console.warn("Guest media load issue:", e);
+        }
+      } else {
+        safeFetch(`${BACKEND_URL}/api/media/${profile.id}`)
+          .then(response => {
+            if (response.data.items) {
+              const mapped = response.data.items.map(i => ({ ...i, id: i.media_id || i.id }));
+              setSavedMedia(mapped);
+            }
+          })
+          .catch(err => console.error("Failed to load saved data", err));
+      }
     }
   }, [profile]);
 
@@ -2993,10 +3014,23 @@ export default function App() {
   };
 
   async function toggleWatchlist(targetItem) {
+    const itemId = targetItem.id || targetItem.media_id;
     setSavedMedia((prev) => {
-      const exists = prev.find(i => i.id === targetItem.id);
-      if (exists) return prev.map(i => i.id === targetItem.id ? { ...i, isWatchlist: !i.isWatchlist } : i);
-      return [{ ...targetItem, isWatchlist: true, isFavourite: false }, ...prev];
+      const exists = prev.find(i => (i.id || i.media_id) === itemId);
+      let updated;
+      if (exists) {
+        updated = prev.map(i => (i.id || i.media_id) === itemId ? { ...i, isWatchlist: !i.isWatchlist } : i);
+      } else {
+        updated = [{ ...targetItem, id: itemId, isWatchlist: true, isFavourite: false }, ...prev];
+      }
+      if (profile?.isGuest) {
+        try {
+          localStorage.setItem("echo_abyss_guest_media", JSON.stringify(updated));
+        } catch (e) {
+          // ignore
+        }
+      }
+      return updated;
     });
 
     if (profile && !profile.isGuest) {
@@ -3009,10 +3043,23 @@ export default function App() {
   }
 
   async function toggleFavourite(targetItem) {
+    const itemId = targetItem.id || targetItem.media_id;
     setSavedMedia((prev) => {
-      const exists = prev.find(i => i.id === targetItem.id);
-      if (exists) return prev.map(i => i.id === targetItem.id ? { ...i, isFavourite: !i.isFavourite } : i);
-      return [{ ...targetItem, isWatchlist: false, isFavourite: true }, ...prev];
+      const exists = prev.find(i => (i.id || i.media_id) === itemId);
+      let updated;
+      if (exists) {
+        updated = prev.map(i => (i.id || i.media_id) === itemId ? { ...i, isFavourite: !i.isFavourite } : i);
+      } else {
+        updated = [{ ...targetItem, id: itemId, isWatchlist: false, isFavourite: true }, ...prev];
+      }
+      if (profile?.isGuest) {
+        try {
+          localStorage.setItem("echo_abyss_guest_media", JSON.stringify(updated));
+        } catch (e) {
+          // ignore
+        }
+      }
+      return updated;
     });
 
     if (profile && !profile.isGuest) {
@@ -6292,7 +6339,15 @@ export default function App() {
                 )}
               </button>
 
-              <div className="rr-user-pill">
+              <div 
+                className="rr-user-pill" 
+                onClick={() => setProfileModalOpen(true)}
+                role="button"
+                tabIndex={0}
+                style={{ cursor: "pointer" }}
+                title="View Your Taste Profile & Analytics"
+                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setProfileModalOpen(true); }}
+              >
                 <div className="rr-user-avatar">
                   {initials(profile?.name || "U")}
                 </div>
@@ -6365,6 +6420,37 @@ export default function App() {
             isOpen={apiKeyModalOpen} 
             onClose={() => setApiKeyModalOpen(false)} 
           />
+
+          {profileModalOpen && (
+            <div className="rr-modal-backdrop" onClick={() => setProfileModalOpen(false)}>
+              <div 
+                className="rr-modal" 
+                onClick={(e) => e.stopPropagation()} 
+                style={{ maxWidth: 860, width: "95%", maxHeight: "90vh", overflowY: "auto", padding: "28px" }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    <div className="rr-user-avatar" style={{ width: 32, height: 32, fontSize: 13 }}>
+                      {initials(profile?.name || "U")}
+                    </div>
+                    <div>
+                      <h2 style={{ margin: 0, fontSize: 19, color: "var(--cream)" }}>{profile?.name || "Explorer"}'s Taste Profile</h2>
+                      <span style={{ fontSize: 12, color: "var(--muted)" }}>Live cinema &amp; music consumption insights</span>
+                    </div>
+                  </div>
+                  <button 
+                    type="button" 
+                    onClick={() => setProfileModalOpen(false)} 
+                    style={{ background: "rgba(255,255,255,0.06)", border: "1px solid var(--line)", color: "var(--cream)", borderRadius: "50%", width: 34, height: 34, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}
+                    title="Close"
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
+                <TasteProfile user={profile} />
+              </div>
+            </div>
+          )}
         </>
       )}
     </div>

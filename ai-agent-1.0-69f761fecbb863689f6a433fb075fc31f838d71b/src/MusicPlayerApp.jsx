@@ -180,45 +180,84 @@ export default function MusicPlayerApp({
     setExternalSearchTriggered(true);
 
     try {
-      const endpoint = `https://itunes.apple.com/search?term=${encodeURIComponent(
-        queryText
-      )}&entity=song&limit=25`;
-      const res = await fetch(endpoint);
-      const data = await res.json();
-
-      if (data.results && data.results.length > 0) {
-        const parsed = data.results.map((item) => {
-          const totalSecs = item.trackTimeMillis ? Math.floor(item.trackTimeMillis / 1000) : 210;
-          const mins = Math.floor(totalSecs / 60);
-          const secs = totalSecs % 60;
-          const durStr = `${mins}:${secs < 10 ? "0" : ""}${secs}`;
-
-          return {
-            id: `itunes-${item.trackId}`,
-            title: item.trackName || "Unknown Track",
-            artist: item.artistName || "Unknown Artist",
-            genreId: "global",
-            genreName: item.primaryGenreName || "Global Hits",
-            moodIds: ["feelgood"],
-            moodName: "Live Discovery",
-            duration: durStr,
-            artworkUrl: item.artworkUrl100
-              ? item.artworkUrl100.replace("100x100bb.jpg", "600x600bb.jpg")
-              : "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&auto=format&fit=crop&q=80",
-            previewUrl: item.previewUrl || "",
-            appleMusicUrl: item.trackViewUrl || `https://music.apple.com/us/search?term=${encodeURIComponent(item.trackName)}`,
-            spotifyUrl: `https://open.spotify.com/search/${encodeURIComponent(
-              (item.trackName || "") + " " + (item.artistName || "")
-            )}`,
-            source: "itunes"
-          };
+      const itunesPromise = fetch(
+        `https://itunes.apple.com/search?term=${encodeURIComponent(queryText)}&entity=song&limit=25`
+      )
+        .then((r) => (r.ok ? r.json() : { results: [] }))
+        .catch((err) => {
+          console.warn("iTunes API search notice:", err.message);
+          return { results: [] };
         });
-        setExternalResults(parsed);
-      } else {
-        setExternalResults([]);
+
+      const backendPromise = fetch("/api/songs/search", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ q: queryText, limit: 30 }),
+      })
+        .then((r) => (r.ok ? r.json() : { results: [] }))
+        .catch((err) => {
+          console.warn("Backend songs search notice:", err.message);
+          return { results: [] };
+        });
+
+      const [itunesRes, backendRes] = await Promise.all([itunesPromise, backendPromise]);
+
+      const parsedBackend = (backendRes.results || []).map((item, idx) => ({
+        id: item.id || `backend-song-${idx}-${(item.title || "").replace(/\s+/g, "-")}`,
+        title: item.title || "Unknown Track",
+        artist: item.creator || item.artist || "Curated Artist",
+        genreId: (item.industry || "global").toLowerCase(),
+        genreName: item.industry || item.language || "Curated Music",
+        moodIds: [item.mood || "feelgood"],
+        moodName: item.mood ? String(item.mood).toUpperCase() : "Curated",
+        duration: item.duration || "3:30",
+        artworkUrl: item.artworkUrl || item.poster || "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&auto=format&fit=crop&q=80",
+        previewUrl: item.audioPreviewUrl || item.previewUrl || "",
+        lyricsUrl: item.lyricsUrl || "",
+        spotifyUrl: item.spotifyUrl || `https://open.spotify.com/search/${encodeURIComponent((item.title || "") + " " + (item.creator || ""))}`,
+        source: "curated"
+      }));
+
+      const parsedItunes = (itunesRes.results || []).map((item) => {
+        const totalSecs = item.trackTimeMillis ? Math.floor(item.trackTimeMillis / 1000) : 210;
+        const mins = Math.floor(totalSecs / 60);
+        const secs = totalSecs % 60;
+        const durStr = `${mins}:${secs < 10 ? "0" : ""}${secs}`;
+
+        return {
+          id: `itunes-${item.trackId}`,
+          title: item.trackName || "Unknown Track",
+          artist: item.artistName || "Unknown Artist",
+          genreId: "global",
+          genreName: item.primaryGenreName || "Global Hits",
+          moodIds: ["feelgood"],
+          moodName: "Live Discovery",
+          duration: durStr,
+          artworkUrl: item.artworkUrl100
+            ? item.artworkUrl100.replace("100x100bb.jpg", "600x600bb.jpg")
+            : "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&auto=format&fit=crop&q=80",
+          previewUrl: item.previewUrl || "",
+          appleMusicUrl: item.trackViewUrl || `https://music.apple.com/us/search?term=${encodeURIComponent(item.trackName)}`,
+          spotifyUrl: `https://open.spotify.com/search/${encodeURIComponent(
+            (item.trackName || "") + " " + (item.artistName || "")
+          )}`,
+          source: "itunes"
+        };
+      });
+
+      const seen = new Set();
+      const combined = [];
+      for (const track of [...parsedBackend, ...parsedItunes]) {
+        const key = ((track.title || "") + " " + (track.artist || "")).toLowerCase().replace(/[^a-z0-9]/g, "");
+        if (!seen.has(key)) {
+          seen.add(key);
+          combined.push(track);
+        }
       }
+
+      setExternalResults(combined);
     } catch (err) {
-      console.warn("iTunes API search error:", err);
+      console.warn("Music search error:", err);
       setExternalResults([]);
     } finally {
       setIsSearchingExternal(false);

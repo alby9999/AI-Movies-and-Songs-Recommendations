@@ -55,4 +55,21 @@ if (!userColumns.includes("bio")) {
   db.exec("ALTER TABLE users ADD COLUMN bio TEXT");
 }
 
+const savedMediaColumns = db.prepare("PRAGMA table_info(saved_media)").all().map(column => column.name);
+if (!savedMediaColumns.includes("poster")) {
+  db.exec("ALTER TABLE saved_media ADD COLUMN poster TEXT");
+}
+if (!savedMediaColumns.includes("audio_preview_url")) {
+  db.exec("ALTER TABLE saved_media ADD COLUMN audio_preview_url TEXT");
+}
+if (!savedMediaColumns.includes("spotify_url")) {
+  db.exec("ALTER TABLE saved_media ADD COLUMN spotify_url TEXT");
+}
+if (!savedMediaColumns.includes("language")) {
+  db.exec("ALTER TABLE saved_media ADD COLUMN language TEXT");
+}
+if (!savedMediaColumns.includes("streaming")) {
+  db.exec("ALTER TABLE saved_media ADD COLUMN streaming TEXT");
+}
+
 export default db;

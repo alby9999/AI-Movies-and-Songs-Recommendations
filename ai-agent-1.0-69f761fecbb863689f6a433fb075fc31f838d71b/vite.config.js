@@ -4,10 +4,24 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   server: {
+    host: true,
+    port: 5173,
     proxy: {
       "/api": {
-        target: "http://localhost:5001",
+        target: "http://127.0.0.1:5001",
         changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
+  build: {
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom"],
+          icons: ["lucide-react"]
+        },
       },
     },
   },

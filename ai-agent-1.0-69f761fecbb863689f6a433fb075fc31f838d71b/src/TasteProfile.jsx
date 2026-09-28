@@ -6,8 +6,8 @@ export default function TasteProfile({ user }) {
   const [errorDetails, setErrorDetails] = useState(null);
 
   useEffect(() => {
-    // Automatically default to localhost if the Vercel env variable isn't set yet
-    const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:5001';
+    const baseUrl = import.meta.env.VITE_API_URL || 
+      (typeof window !== "undefined" && (window.location.port === "5173" || window.location.port === "5001" || window.location.port === "5000") ? "" : "http://localhost:5001");
     
     fetch(`${baseUrl}/api/profile/${user.id}/stats`)
       .then(async (res) => {

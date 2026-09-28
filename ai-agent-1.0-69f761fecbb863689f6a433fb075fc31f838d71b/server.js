@@ -14,6 +14,7 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+dotenv.config({ path: path.join(__dirname, ".env") });
 dotenv.config();
 
 const app = express();
@@ -222,11 +223,31 @@ app.get("/api/media/:userId", (req, res) => {
     const { userId } = req.params;
     const items = db.prepare("SELECT * FROM saved_media WHERE user_id = ?").all(userId);
     
-    const formattedItems = items.map(item => ({
-      ...item,
-      isWatchlist: Boolean(item.is_watchlist),
-      isFavourite: Boolean(item.is_favourite)
-    }));
+    const formattedItems = items.map(item => {
+      let streaming = undefined;
+      if (item.streaming) {
+        try {
+          streaming = JSON.parse(item.streaming);
+        } catch (e) {
+          streaming = undefined;
+        }
+      }
+
+      return {
+        ...item,
+        id: item.media_id || item.id,
+        media_id: item.media_id || item.id,
+        poster: item.poster || "",
+        artworkUrl: item.poster || "",
+        audioPreviewUrl: item.audio_preview_url || "",
+        previewUrl: item.audio_preview_url || "",
+        spotifyUrl: item.spotify_url || "",
+        language: item.language || "",
+        streaming,
+        isWatchlist: Boolean(item.is_watchlist),
+        isFavourite: Boolean(item.is_favourite)
+      };
+    });
     
     res.json({ items: formattedItems });
   } catch (error) {
@@ -242,28 +263,57 @@ app.post("/api/media/toggle", (req, res) => {
       return res.status(400).json({ error: "Missing required parameters." });
     }
     
-    const existing = db.prepare("SELECT * FROM saved_media WHERE user_id = ? AND media_id = ?").get(userId, item.id);
+    // Auto-provision user record if not present to satisfy foreign key constraint
+    const userRow = db.prepare("SELECT id FROM users WHERE id = ?").get(userId);
+    if (!userRow) {
+      try {
+        const safeName = `user_${String(userId).replace(/[^a-zA-Z0-9_]/g, '').slice(0, 16) || uuidv4().slice(0, 8)}`;
+        db.prepare("INSERT OR IGNORE INTO users (id, username, password, display_name, bio) VALUES (?, ?, ?, ?, ?)")
+          .run(userId, safeName, "guest_session_placeholder", "Explorer", "Film & Music Enthusiast");
+      } catch (uErr) {
+        console.warn("User auto-provision warning:", uErr.message);
+      }
+    }
+
+    const mediaId = item.id || item.media_id;
+    const existing = db.prepare("SELECT * FROM saved_media WHERE user_id = ? AND media_id = ?").get(userId, mediaId);
+
+    const poster = item.poster || item.artworkUrl || item.posterUrl || "";
+    const audioPreview = item.audioPreviewUrl || item.previewUrl || "";
+    const spotify = item.spotifyUrl || "";
+    const lang = item.language || "";
+    const streamJson = item.streaming ? JSON.stringify(item.streaming) : "";
 
     if (existing) {
       const newVal = existing[field] ? 0 : 1;
-      db.prepare(`UPDATE saved_media SET ${field} = ? WHERE id = ?`).run(newVal, existing.id);
+      db.prepare(`
+        UPDATE saved_media 
+        SET ${field} = ?, 
+            poster = COALESCE(NULLIF(?, ''), poster), 
+            audio_preview_url = COALESCE(NULLIF(?, ''), audio_preview_url), 
+            spotify_url = COALESCE(NULLIF(?, ''), spotify_url) 
+        WHERE id = ?
+      `).run(newVal, poster, audioPreview, spotify, existing.id);
     } else {
       const isWatchlist = field === 'is_watchlist' ? 1 : 0;
       const isFavourite = field === 'is_favourite' ? 1 : 0;
       const dbId = uuidv4();
       
       const insert = db.prepare(`
-        INSERT INTO saved_media (id, user_id, media_id, type, title, creator, year, genre, duration, rating, blurb, vibe, is_watchlist, is_favourite)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        INSERT INTO saved_media (
+          id, user_id, media_id, type, title, creator, year, genre, duration, rating, blurb, vibe, 
+          is_watchlist, is_favourite, poster, audio_preview_url, spotify_url, language, streaming
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
       `);
       
       insert.run(
         dbId,
         userId,
-        item.id,
-        item.type,
-        item.title,
-        item.creator || "",
+        mediaId,
+        item.type || "movie",
+        item.title || "Untitled",
+        item.creator || item.artist || "",
         item.year ? String(item.year) : "",
         item.genre || "",
         item.duration || "",
@@ -271,7 +321,12 @@ app.post("/api/media/toggle", (req, res) => {
         item.blurb || "",
         item.vibe || "",
         isWatchlist,
-        isFavourite
+        isFavourite,
+        poster,
+        audioPreview,
+        spotify,
+        lang,
+        streamJson
       );
     }
     
@@ -1127,7 +1182,8 @@ app.get("/api/top-movies", (_req, res) => {
 });
 
 app.post("/api/mood-search", async (req, res) => {
-  const { text, type = "all", language = "all", mood = null, suggestion = null, refresh = false } = req.body;
+  const text = req.body.text || req.body.query || req.body.q;
+  const { type = "all", language = "all", mood = null, suggestion = null, refresh = false } = req.body;
 
   if (typeof text !== "string" || !text.trim()) {
     return res.status(400).json({ error: "A search query is required." });
