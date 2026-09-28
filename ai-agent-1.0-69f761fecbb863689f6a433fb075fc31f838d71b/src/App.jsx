@@ -1935,7 +1935,8 @@ function Discover({
   onOpenApiKeyModal,
   resetTrigger,
   playingAudioId = null,
-  onTogglePlaySong = null
+  onTogglePlaySong = null,
+  theme = "dark"
 }) {
   const inputRef = useRef(null);
   
@@ -2462,6 +2463,7 @@ function Discover({
           externalQuery={query}
           selectedGenreProp={selectedLanguage}
           selectedMoodProp={activeMoodId}
+          theme={theme}
         />
       ) : viewMode === "grid" ? (
         <div className="rr-card-grid">
@@ -5369,15 +5371,15 @@ export default function App() {
         .rr-app--light {
           --ink: #f8fafc;
           --ink-subtle: #ffffff;
-          --surface: rgba(255, 255, 255, 0.95);
+          --surface: #ffffff;
           --surface-hover: #f1f5f9;
-          --surface-raised: #ffffff;
-          --line: rgba(0, 0, 0, 0.08);
+          --surface-raised: #f8fafc;
+          --line: rgba(0, 0, 0, 0.12);
           --line-hover: rgba(2, 132, 199, 0.5);
           --cream: #0f172a;
           --cream-dim: #334155;
-          --muted: #64748b;
-          --muted-dark: #94a3b8;
+          --muted: #475569;
+          --muted-dark: #64748b;
           --accent: #0284c7;
           --accent-glow: rgba(2, 132, 199, 0.25);
           --accent-dim: rgba(2, 132, 199, 0.12);
@@ -5385,7 +5387,7 @@ export default function App() {
           --indigo: #4f46e5;
           --indigo-glow: rgba(79, 70, 229, 0.25);
           --card-bg: #ffffff;
-          --card-border: rgba(0, 0, 0, 0.08);
+          --card-border: rgba(0, 0, 0, 0.1);
           --card-hover: #ffffff;
           --card-hover-border: rgba(2, 132, 199, 0.45);
           background: #f8fafc !important;
@@ -5393,12 +5395,12 @@ export default function App() {
             radial-gradient(circle at 14% 12%, rgba(2, 132, 199, 0.07) 0%, transparent 40%),
             radial-gradient(circle at 86% 22%, rgba(79, 70, 229, 0.07) 0%, transparent 45%),
             radial-gradient(circle at 50% 88%, rgba(255, 77, 109, 0.04) 0%, transparent 50%) !important;
-          color: var(--cream) !important;
+          color: #0f172a !important;
         }
 
         .rr-app--light .rr-header {
-          background: rgba(255, 255, 255, 0.88);
-          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+          background: rgba(255, 255, 255, 0.92);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
         }
 
@@ -5407,315 +5409,762 @@ export default function App() {
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
+        .rr-app--light .rr-logo__text {
+          color: #0f172a !important;
+        }
+        .rr-app--light .rr-logo__tag {
+          color: #0284c7 !important;
+        }
 
         .rr-app--light .rr-nav {
-          background: rgba(241, 245, 249, 0.85);
-          border: 1px solid rgba(0, 0, 0, 0.08);
+          background: rgba(241, 245, 249, 0.9);
+          border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .rr-app--light .rr-nav__btn {
+          color: #334155 !important;
+          font-weight: 600;
         }
         .rr-app--light .rr-nav__btn:hover {
-          color: #0f172a;
+          color: #0f172a !important;
         }
         .rr-app--light .rr-nav__btn--active {
-          background: #ffffff;
-          color: var(--accent);
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+          background: #ffffff !important;
+          color: #0284c7 !important;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+          font-weight: 700 !important;
         }
 
         .rr-app--light .rr-hero__title {
-          background: linear-gradient(180deg, #0f172a 45%, #475569 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          background: linear-gradient(180deg, #0f172a 45%, #1e293b 100%) !important;
+          -webkit-background-clip: text !important;
+          -webkit-text-fill-color: transparent !important;
+        }
+        .rr-app--light .rr-hero__desc,
+        .rr-app--light .rr-hero__subtitle {
+          color: #334155 !important;
+        }
+        .rr-app--light .rr-hero-badge {
+          background: #e0f2fe !important;
+          border: 1px solid #bae6fd !important;
+          color: #0369a1 !important;
+          font-weight: 700;
         }
 
         .rr-app--light .rr-search {
-          background: #ffffff;
-          border: 1px solid rgba(0, 0, 0, 0.12);
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.15) !important;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
         }
         .rr-app--light .rr-search__input {
-          color: #0f172a;
+          color: #0f172a !important;
+          font-weight: 500;
         }
         .rr-app--light .rr-search__input::placeholder {
-          color: #94a3b8;
+          color: #64748b !important;
         }
-
+        .rr-app--light .rr-search__icon {
+          color: #475569 !important;
+        }
+        .rr-app--light .rr-search__clear {
+          color: #64748b !important;
+        }
+        .rr-app--light .rr-search__clear:hover {
+          color: #0f172a !important;
+        }
         .rr-app--light .rr-search-submit {
-          color: #ffffff;
+          color: #ffffff !important;
         }
 
         .rr-app--light .rr-cinema-pill {
-          background: #ffffff;
-          border: 1px solid rgba(0, 0, 0, 0.08);
-          color: #334155;
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.12) !important;
+          color: #1e293b !important;
+          font-weight: 600 !important;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03) !important;
         }
         .rr-app--light .rr-cinema-pill:hover {
-          background: #f8fafc;
-          border-color: var(--accent);
-          color: var(--accent);
+          background: #f1f5f9 !important;
+          border-color: #0284c7 !important;
+          color: #0284c7 !important;
         }
         .rr-app--light .rr-cinema-pill--active {
-          background: var(--accent);
-          color: #ffffff;
-          border-color: var(--accent);
-          box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+          background: #0284c7 !important;
+          color: #ffffff !important;
+          border-color: #0284c7 !important;
+          box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3) !important;
         }
 
         .rr-app--light .rr-chip {
-          background: #ffffff;
-          border: 1px solid rgba(0, 0, 0, 0.08);
-          color: #334155;
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.12) !important;
+          color: #1e293b !important;
+          font-weight: 600 !important;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03) !important;
         }
         .rr-app--light .rr-chip:hover {
-          background: #f8fafc;
-          border-color: var(--accent);
-          color: var(--accent);
+          background: #f1f5f9 !important;
+          border-color: #0284c7 !important;
+          color: #0284c7 !important;
         }
         .rr-app--light .rr-chip--active {
-          background: var(--accent-grad);
-          color: #ffffff;
-          border-color: transparent;
-          box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+          background: var(--accent-grad) !important;
+          color: #ffffff !important;
+          border-color: transparent !important;
+          box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3) !important;
         }
 
         .rr-app--light .rr-subsuggestions-section {
-          background: #ffffff;
-          border: 1px solid rgba(0, 0, 0, 0.08);
-          box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.1) !important;
+          box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05) !important;
+        }
+        .rr-app--light .rr-subsuggestions-title {
+          color: #0f172a !important;
+          font-weight: 700 !important;
         }
         .rr-app--light .rr-subchip {
-          background: #f1f5f9;
-          border-color: rgba(0, 0, 0, 0.08);
-          color: #334155;
+          background: #f1f5f9 !important;
+          border: 1px solid rgba(0, 0, 0, 0.1) !important;
+          color: #1e293b !important;
+          font-weight: 500 !important;
         }
         .rr-app--light .rr-subchip:hover {
-          background: #e2e8f0;
-          color: #0f172a;
-          border-color: var(--accent);
+          background: #e2e8f0 !important;
+          color: #0f172a !important;
+          border-color: #0284c7 !important;
         }
         .rr-app--light .rr-subchip--active {
-          background: var(--accent) !important;
+          background: #0284c7 !important;
           color: #ffffff !important;
-          border-color: var(--accent) !important;
+          border-color: #0284c7 !important;
+          font-weight: 600 !important;
         }
         .rr-app--light .rr-refresh-ai-btn {
-          background: #f0fdf4;
-          border-color: rgba(0, 0, 0, 0.12);
-          color: #15803d;
+          background: #f0fdf4 !important;
+          border: 1px solid #bbf7d0 !important;
+          color: #15803d !important;
+          font-weight: 600 !important;
+        }
+        .rr-app--light .rr-refresh-ai-btn:hover {
+          background: #dcfce7 !important;
+          color: #166534 !important;
         }
 
-        .rr-app--light .rr-card {
-          background: #ffffff;
-          border: 1px solid rgba(0, 0, 0, 0.08);
-          box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+        /* List Headers and Dropdowns */
+        .rr-app--light .rr-listhead__title {
+          color: #0f172a !important;
+          font-weight: 800 !important;
         }
-        .rr-app--light .rr-card:hover {
-          border-color: var(--accent);
-          box-shadow: 0 12px 32px rgba(2, 132, 199, 0.12);
+        .rr-app--light .rr-listhead__meta,
+        .rr-app--light .rr-listhead__count {
+          color: #475569 !important;
+          font-weight: 600 !important;
         }
-
-        .rr-app--light .rr-card__title {
-          color: #0f172a;
+        .rr-app--light .rr-dropdown__trigger {
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.15) !important;
+          color: #0f172a !important;
+          font-weight: 600 !important;
         }
-
-        .rr-app--light .rr-card__poster-overlay {
-          background: linear-gradient(180deg, rgba(0, 0, 0, 0.12) 0%, transparent 45%, rgba(0, 0, 0, 0.72) 100%);
+        .rr-app--light .rr-dropdown__trigger option {
+          background: #ffffff !important;
+          color: #0f172a !important;
         }
-
-        .rr-app--light .rr-card__details {
-          background: #f8fafc;
-          border-top: 1px solid rgba(0, 0, 0, 0.06);
+        .rr-app--light .rr-dropdown__select-icon {
+          color: #475569 !important;
         }
-
-        .rr-app--light .rr-row {
-          background: #ffffff;
-          border: 1px solid rgba(0, 0, 0, 0.08);
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-        }
-        .rr-app--light .rr-row:hover {
-          border-color: var(--accent);
-          box-shadow: 0 8px 24px rgba(2, 132, 199, 0.08);
-        }
-
         .rr-app--light .rr-pill {
-          background: #ffffff;
-          border: 1px solid rgba(0, 0, 0, 0.08);
-          color: #475569;
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.12) !important;
+          color: #334155 !important;
+          font-weight: 600 !important;
+        }
+        .rr-app--light .rr-pill:hover {
+          background: #f1f5f9 !important;
+          color: #0284c7 !important;
+          border-color: #0284c7 !important;
         }
         .rr-app--light .rr-pill--active {
-          background: var(--accent);
-          color: #ffffff;
-          border-color: var(--accent);
+          background: #0284c7 !important;
+          color: #ffffff !important;
+          border-color: #0284c7 !important;
+          font-weight: 700 !important;
         }
-
         .rr-app--light .rr-view-btn {
-          background: #ffffff;
-          border: 1px solid rgba(0, 0, 0, 0.08);
-          color: #64748b;
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.12) !important;
+          color: #334155 !important;
+        }
+        .rr-app--light .rr-view-btn:hover {
+          background: #f1f5f9 !important;
+          color: #0284c7 !important;
         }
         .rr-app--light .rr-view-btn--active {
-          background: var(--accent);
-          color: #ffffff;
-          border-color: var(--accent);
+          background: #0284c7 !important;
+          color: #ffffff !important;
+          border-color: #0284c7 !important;
         }
 
+        /* Card Aesthetics & High-Contrast Typography */
+        .rr-app--light .rr-card {
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.1) !important;
+          box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05) !important;
+        }
+        .rr-app--light .rr-card:hover {
+          border-color: #0284c7 !important;
+          box-shadow: 0 12px 32px rgba(2, 132, 199, 0.12) !important;
+        }
+        .rr-app--light .rr-card__title {
+          color: #0f172a !important;
+          font-weight: 700 !important;
+        }
+        .rr-app--light .rr-card__creator {
+          color: #334155 !important;
+          font-weight: 600 !important;
+        }
+        .rr-app--light .rr-card__meta {
+          color: #475569 !important;
+        }
+        .rr-app--light .rr-card__year,
+        .rr-app--light .rr-card__duration {
+          color: #475569 !important;
+          font-weight: 600 !important;
+        }
+        .rr-app--light .rr-card__rating {
+          color: #b45309 !important;
+          font-weight: 700 !important;
+        }
+        .rr-app--light .rr-card__genre {
+          color: #0369a1 !important;
+          background: #f0f9ff !important;
+          border: 1px solid #bae6fd !important;
+          font-weight: 600 !important;
+        }
+        .rr-app--light .rr-card__reason {
+          color: #0369a1 !important;
+          background: #f0f9ff !important;
+          border: 1px solid #bae6fd !important;
+          font-weight: 600 !important;
+        }
+        .rr-app--light .rr-card__sparkle {
+          color: #0284c7 !important;
+        }
+        .rr-app--light .rr-card__blurb {
+          color: #1e293b !important;
+          font-weight: 400 !important;
+          line-height: 1.55 !important;
+        }
+        .rr-app--light .rr-card__poster-overlay {
+          background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, transparent 45%, rgba(0, 0, 0, 0.72) 100%) !important;
+        }
+        .rr-app--light .rr-card__details {
+          background: #f8fafc !important;
+          border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+        }
+        .rr-app--light .rr-card__detail-block {
+          border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+        }
+        .rr-app--light .rr-detail-heading {
+          color: #0369a1 !important;
+          font-weight: 700 !important;
+        }
+        .rr-app--light .rr-detail-icon {
+          color: #0284c7 !important;
+        }
+        .rr-app--light .rr-cast-chips {
+          color: #1e293b !important;
+        }
+        .rr-app--light .rr-cast-pill {
+          color: #6b21a8 !important;
+          background: #faf5ff !important;
+          border: 1px solid #e9d5ff !important;
+          font-weight: 600 !important;
+        }
+        .rr-app--light .rr-cast-pill:hover {
+          background: #f3e8ff !important;
+          border-color: #d8b4fe !important;
+        }
+        .rr-app--light .rr-vibe-chips {
+          color: #1e293b !important;
+        }
+        .rr-app--light .rr-vibe-label {
+          color: #334155 !important;
+          font-weight: 700 !important;
+        }
+        .rr-app--light .rr-vibe-pill {
+          color: #0369a1 !important;
+          background: #e0f2fe !important;
+          border: 1px solid #7dd3fc !important;
+          font-weight: 600 !important;
+        }
+        .rr-app--light .rr-card__expand-sec {
+          border-top: 1px solid rgba(0, 0, 0, 0.06) !important;
+        }
+        .rr-app--light .rr-card__expand-btn {
+          color: #334155 !important;
+          font-weight: 600 !important;
+        }
+        .rr-app--light .rr-card__expand-btn:hover {
+          color: #0284c7 !important;
+        }
+        .rr-app--light .rr-card__action-btn {
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.12) !important;
+          color: #334155 !important;
+        }
+        .rr-app--light .rr-card__action-btn:hover {
+          background: #f1f5f9 !important;
+          color: #0f172a !important;
+          border-color: #0284c7 !important;
+        }
+        .rr-app--light .rr-song-preview-btn {
+          background: #f0f9ff !important;
+          border: 1px solid #bae6fd !important;
+          color: #0284c7 !important;
+          font-weight: 600 !important;
+        }
+        .rr-app--light .rr-song-preview-btn:hover {
+          background: #e0f2fe !important;
+          color: #0369a1 !important;
+        }
+
+        /* Row View */
+        .rr-app--light .rr-row {
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.1) !important;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+        }
+        .rr-app--light .rr-row:hover {
+          border-color: #0284c7 !important;
+          box-shadow: 0 6px 20px rgba(2, 132, 199, 0.1) !important;
+        }
+        .rr-app--light .rr-row__title {
+          color: #0f172a !important;
+          font-weight: 700 !important;
+        }
+        .rr-app--light .rr-row__creator {
+          color: #334155 !important;
+          font-weight: 600 !important;
+        }
+        .rr-app--light .rr-row__reason {
+          color: #0369a1 !important;
+          font-weight: 600 !important;
+        }
+        .rr-app--light .rr-row__meta {
+          color: #475569 !important;
+        }
+        .rr-app--light .rr-row__meta-item {
+          color: #334155 !important;
+        }
+        .rr-app--light .rr-row__rating {
+          color: #b45309 !important;
+          font-weight: 700 !important;
+        }
+        .rr-app--light .rr-row__blurb {
+          color: #1e293b !important;
+        }
+        .rr-app--light .rr-row__expansion {
+          background: #f8fafc !important;
+          border: 1px solid rgba(0, 0, 0, 0.08) !important;
+          color: #1e293b !important;
+        }
+        .rr-app--light .rr-genre-tag {
+          background: #e2e8f0 !important;
+          color: #0f172a !important;
+          font-weight: 600 !important;
+        }
+        .rr-app--light .rr-row__chevron {
+          color: #64748b !important;
+        }
+
+        /* High-Contrast Badges */
+        .rr-app--light .rr-badge--movie {
+          background: #e0f2fe !important;
+          color: #0369a1 !important;
+          border: 1px solid #7dd3fc !important;
+          font-weight: 700 !important;
+        }
+        .rr-app--light .rr-badge--song {
+          background: #e0e7ff !important;
+          color: #4338ca !important;
+          border: 1px solid #a5b4fc !important;
+          font-weight: 700 !important;
+        }
+        .rr-app--light .rr-lang-badge--hindi {
+          background: #ffedd5 !important;
+          color: #c2410c !important;
+          border: 1px solid #fdba74 !important;
+          font-weight: 700 !important;
+        }
+        .rr-app--light .rr-lang-badge--english {
+          background: #dbeafe !important;
+          color: #1d4ed8 !important;
+          border: 1px solid #93c5fd !important;
+          font-weight: 700 !important;
+        }
+        .rr-app--light .rr-lang-badge--south {
+          background: #ffedd5 !important;
+          color: #c2410c !important;
+          border: 1px solid #fed7aa !important;
+          font-weight: 700 !important;
+        }
+        .rr-app--light .rr-lang-badge--world {
+          background: #f3e8ff !important;
+          color: #7e22ce !important;
+          border: 1px solid #d8b4fe !important;
+          font-weight: 700 !important;
+        }
+        .rr-app--light .rr-lang-badge--other {
+          background: #f1f5f9 !important;
+          color: #334155 !important;
+          border: 1px solid #cbd5e1 !important;
+          font-weight: 700 !important;
+        }
+
+        /* User Pill & Header items */
         .rr-app--light .rr-user-pill {
-          background: #ffffff;
-          border: 1px solid rgba(0, 0, 0, 0.08);
-          color: #0f172a;
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.12) !important;
+          color: #0f172a !important;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+        }
+        .rr-app--light .rr-user-name {
+          color: #0f172a !important;
+          font-weight: 700 !important;
+        }
+        .rr-app--light .rr-user-stat {
+          color: #475569 !important;
         }
 
         /* Light Mode OTT Elements */
         .rr-app--light .rr-ott-select {
-          background-color: #ffffff;
-          border-color: rgba(0, 0, 0, 0.12);
-          color: #0f172a;
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+          background-color: #ffffff !important;
+          border-color: rgba(0, 0, 0, 0.15) !important;
+          color: #0f172a !important;
+          font-weight: 600 !important;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
         }
         .rr-app--light .rr-ott-select option,
         .rr-app--light .rr-ott-select optgroup {
-          background: #ffffff;
-          color: #0f172a;
+          background: #ffffff !important;
+          color: #0f172a !important;
         }
-
+        .rr-app--light .rr-ott-filter-icon {
+          color: #0284c7 !important;
+        }
         .rr-app--light .rr-card__ott-strip {
-          background: #f1f5f9;
-          border-color: rgba(0, 0, 0, 0.06);
+          background: #f1f5f9 !important;
+          border-color: rgba(0, 0, 0, 0.08) !important;
         }
-
         .rr-app--light .rr-ott-chip {
-          background: #ffffff;
-          border-color: rgba(0, 0, 0, 0.1);
-          color: #1e293b;
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.12) !important;
+          color: #0f172a !important;
+          font-weight: 600 !important;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
         }
         .rr-app--light .rr-ott-chip--free {
-          background: rgba(16, 185, 129, 0.1);
-          border-color: rgba(16, 185, 129, 0.35);
-          color: #047857;
+          background: #dcfce7 !important;
+          border-color: #86efac !important;
+          color: #15803d !important;
+          font-weight: 700 !important;
         }
         .rr-app--light .rr-ott-chip--subscription {
-          background: rgba(2, 132, 199, 0.1);
-          border-color: rgba(2, 132, 199, 0.35);
-          color: #0369a1;
+          background: #e0f2fe !important;
+          border-color: #7dd3fc !important;
+          color: #0369a1 !important;
+          font-weight: 700 !important;
         }
         .rr-app--light .rr-ott-chip--rent {
-          background: rgba(245, 158, 11, 0.1);
-          border-color: rgba(245, 158, 11, 0.35);
-          color: #b45309;
+          background: #fef3c7 !important;
+          border-color: #fde68a !important;
+          color: #b45309 !important;
+          font-weight: 700 !important;
         }
-
         .rr-app--light .rr-ott-detailed-card {
-          background: #ffffff;
-          border-color: rgba(0, 0, 0, 0.08);
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.12) !important;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
         }
         .rr-app--light .rr-ott-detailed-card:hover {
-          background: #f8fafc;
-          border-color: var(--accent);
-          box-shadow: 0 4px 14px rgba(2, 132, 199, 0.15);
+          background: #f8fafc !important;
+          border-color: #0284c7 !important;
+          box-shadow: 0 4px 14px rgba(2, 132, 199, 0.15) !important;
+        }
+        .rr-app--light .rr-ott-detailed-name {
+          color: #0f172a !important;
+          font-weight: 700 !important;
         }
         .rr-app--light .rr-ott-detailed-price {
-          color: #475569;
+          color: #334155 !important;
+          font-weight: 600 !important;
+        }
+        .rr-app--light .rr-ott-detailed-cta {
+          color: #0284c7 !important;
+          font-weight: 600 !important;
+        }
+        .rr-app--light .rr-ott-badge-tag--free {
+          background: #dcfce7 !important;
+          color: #15803d !important;
+          border-color: #86efac !important;
+        }
+        .rr-app--light .rr-ott-badge-tag--subscription {
+          background: #e0f2fe !important;
+          color: #0369a1 !important;
+          border-color: #7dd3fc !important;
+        }
+        .rr-app--light .rr-ott-badge-tag--rent {
+          background: #fef3c7 !important;
+          color: #b45309 !important;
+          border-color: #fde68a !important;
         }
 
+        /* Buttons, Logout & Theme Toggle */
+        .rr-app--light .rr-btn {
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.15) !important;
+          color: #0f172a !important;
+          font-weight: 600 !important;
+        }
+        .rr-app--light .rr-btn:hover {
+          background: #f1f5f9 !important;
+          border-color: #0284c7 !important;
+          color: #0284c7 !important;
+        }
+        .rr-app--light .rr-btn--primary {
+          background: var(--accent-grad) !important;
+          color: #ffffff !important;
+          border: none !important;
+          font-weight: 700 !important;
+          box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3) !important;
+        }
+        .rr-app--light .rr-btn--primary:hover {
+          filter: brightness(1.08) !important;
+          color: #ffffff !important;
+        }
         .rr-app--light .rr-icon-btn,
         .rr-app--light .rr-logout-btn {
-          background: #ffffff;
-          border: 1px solid rgba(0, 0, 0, 0.08);
-          color: #334155;
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.12) !important;
+          color: #334155 !important;
+          font-weight: 600 !important;
+        }
+        .rr-app--light .rr-icon-btn:hover,
+        .rr-app--light .rr-logout-btn:hover {
+          background: #f1f5f9 !important;
+          color: #0f172a !important;
+          border-color: #0284c7 !important;
+        }
+        .rr-app--light .rr-theme-toggle {
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.15) !important;
+          color: #0f172a !important;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+          font-weight: 600 !important;
+        }
+        .rr-app--light .rr-theme-toggle:hover {
+          border-color: #0284c7 !important;
+          color: #0284c7 !important;
         }
 
+        /* Pagination in Light Mode */
+        .rr-app--light .rr-page-btn {
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.12) !important;
+          color: #0f172a !important;
+          font-weight: 600 !important;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+        }
+        .rr-app--light .rr-page-btn:hover:not(:disabled) {
+          border-color: #0284c7 !important;
+          color: #0284c7 !important;
+        }
+        .rr-app--light .rr-page-btn:disabled {
+          opacity: 0.4 !important;
+          color: #94a3b8 !important;
+          background: #f1f5f9 !important;
+          border-color: #e2e8f0 !important;
+        }
+        .rr-app--light .rr-page-num {
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.12) !important;
+          color: #334155 !important;
+          font-weight: 600 !important;
+        }
+        .rr-app--light .rr-page-num:hover:not(.rr-page-num--active) {
+          border-color: #0284c7 !important;
+          color: #0284c7 !important;
+          background: #f1f5f9 !important;
+        }
+        .rr-app--light .rr-page-num--active {
+          background: #0284c7 !important;
+          color: #ffffff !important;
+          border-color: transparent !important;
+          font-weight: 800 !important;
+          box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35) !important;
+        }
+        .rr-app--light .rr-page-ellipsis {
+          color: #64748b !important;
+        }
+
+        /* Empty States & Skeletons */
+        .rr-app--light .rr-empty__title {
+          color: #0f172a !important;
+          font-weight: 700 !important;
+        }
+        .rr-app--light .rr-empty__subtitle {
+          color: #475569 !important;
+        }
+        .rr-app--light .rr-empty__mark {
+          background: #f1f5f9 !important;
+          border: 1px dashed #cbd5e1 !important;
+          color: #0f172a !important;
+        }
+        .rr-app--light .rr-skeleton {
+          background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%) !important;
+          background-size: 200% 100% !important;
+        }
+
+        /* Modals and Settings */
         .rr-app--light .rr-modal-card {
-          background: #ffffff;
-          border: 1px solid rgba(0, 0, 0, 0.1);
-          color: #0f172a;
-          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.12) !important;
+          color: #0f172a !important;
+          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15) !important;
         }
         .rr-app--light .rr-modal-title {
-          color: #0f172a;
+          color: #0f172a !important;
+          font-weight: 700 !important;
+        }
+        .rr-app--light .rr-modal-desc {
+          color: #334155 !important;
+        }
+        .rr-app--light .rr-modal-close {
+          color: #64748b !important;
+        }
+        .rr-app--light .rr-modal-close:hover {
+          color: #0f172a !important;
+        }
+        .rr-app--light .rr-field-label {
+          color: #334155 !important;
+          font-weight: 700 !important;
+        }
+        .rr-app--light .rr-link-btn {
+          color: #0284c7 !important;
+          font-weight: 600;
+        }
+        .rr-app--light .rr-link-btn:hover {
+          color: #0369a1 !important;
+          text-decoration: underline !important;
         }
 
+        /* Auth Screen */
         .rr-app--light .rr-auth-wrap {
-          background: radial-gradient(circle at 50% 15%, #e0f2fe 0%, #f8fafc 75%);
+          background: radial-gradient(circle at 50% 15%, #e0f2fe 0%, #f8fafc 75%) !important;
         }
         .rr-app--light .rr-auth-card {
-          background: #ffffff;
-          border: 1px solid rgba(0, 0, 0, 0.08);
-          color: #0f172a;
-          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.1) !important;
+          color: #0f172a !important;
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08) !important;
         }
         .rr-app--light .rr-auth-title {
-          background: linear-gradient(180deg, #0f172a 40%, #334155 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          background: linear-gradient(180deg, #0f172a 40%, #1e293b 100%) !important;
+          -webkit-background-clip: text !important;
+          -webkit-text-fill-color: transparent !important;
+        }
+        .rr-app--light .rr-auth-subtitle {
+          color: #334155 !important;
         }
         .rr-app--light .rr-auth-tabs {
-          background: #f1f5f9;
-          border: 1px solid rgba(0, 0, 0, 0.08);
+          background: #f1f5f9 !important;
+          border: 1px solid rgba(0, 0, 0, 0.1) !important;
         }
         .rr-app--light .rr-auth-tab {
-          color: #64748b;
+          color: #475569 !important;
+          font-weight: 600 !important;
         }
         .rr-app--light .rr-auth-tab--active {
-          background: #ffffff;
-          color: var(--accent);
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+          background: #ffffff !important;
+          color: #0284c7 !important;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+          font-weight: 700 !important;
         }
         .rr-app--light .rr-auth-input {
-          background: #f8fafc;
-          border: 1px solid rgba(0, 0, 0, 0.12);
-          color: #0f172a;
+          background: #f8fafc !important;
+          border: 1px solid rgba(0, 0, 0, 0.15) !important;
+          color: #0f172a !important;
+          font-weight: 500;
+        }
+        .rr-app--light .rr-auth-input::placeholder {
+          color: #94a3b8 !important;
         }
         .rr-app--light .rr-guest-btn {
-          background: #f8fafc;
-          border-color: rgba(0, 0, 0, 0.15);
-          color: #475569;
+          background: #f8fafc !important;
+          border: 1px solid rgba(0, 0, 0, 0.15) !important;
+          color: #334155 !important;
+          font-weight: 600 !important;
+        }
+        .rr-app--light .rr-guest-btn:hover {
+          background: #f1f5f9 !important;
+          color: #0f172a !important;
+          border-color: #0284c7 !important;
+        }
+        .rr-app--light .rr-auth-notice {
+          color: #475569 !important;
+        }
+        .rr-app--light .rr-guest-divider span {
+          background: #ffffff !important;
+          color: #64748b !important;
         }
 
         /* Light Mode Lyrics Elements */
         .rr-app--light .rr-lyrics-cta-btn {
-          background: #fef9c3;
-          border-color: #eab308;
-          color: #854d0e;
+          background: #fef9c3 !important;
+          border: 1px solid #eab308 !important;
+          color: #854d0e !important;
+          font-weight: 700 !important;
         }
         .rr-app--light .rr-lyrics-cta-btn:hover {
-          background: #ca8a04;
-          color: #ffffff;
+          background: #ca8a04 !important;
+          color: #ffffff !important;
         }
         .rr-app--light .rr-lyrics-btn {
-          color: #854d0e;
-          border-color: rgba(202, 138, 4, 0.4);
+          color: #854d0e !important;
+          border-color: rgba(202, 138, 4, 0.4) !important;
+          font-weight: 600 !important;
         }
         .rr-app--light .rr-lyrics-btn:hover {
-          background: #fef08a;
-          color: #713f12;
+          background: #fef08a !important;
+          color: #713f12 !important;
         }
         .rr-app--light .rr-card__action-btn--lyrics:hover {
-          background: #fef08a;
-          color: #713f12;
+          background: #fef08a !important;
+          color: #713f12 !important;
         }
         .rr-app--light .rr-card__lyrics-block {
-          background: #fefce8;
-          border-color: rgba(234, 179, 8, 0.25);
+          background: #fefce8 !important;
+          border: 1px solid rgba(234, 179, 8, 0.25) !important;
         }
         .rr-app--light .rr-lyrics-prompt {
-          color: #0f172a;
+          color: #0f172a !important;
         }
         .rr-app--light .rr-lyrics-open-link {
-          background: #fef08a;
-          border-color: #ca8a04;
-          color: #713f12;
+          background: #fef08a !important;
+          border: 1px solid #ca8a04 !important;
+          color: #713f12 !important;
+          font-weight: 600 !important;
         }
         .rr-app--light .rr-lyrics-open-link:hover {
-          background: #ca8a04;
-          color: #ffffff;
+          background: #ca8a04 !important;
+          color: #ffffff !important;
         }
         .rr-app--light .rr-lyrics-redirect-badge {
-          background: #fef08a;
-          border-color: #ca8a04;
-          color: #713f12;
+          background: #fef08a !important;
+          border: 1px solid #ca8a04 !important;
+          color: #713f12 !important;
+          font-weight: 600 !important;
         }
         .rr-brand-icon--logo {
           background: transparent !important;
@@ -5872,6 +6321,7 @@ export default function App() {
                 resetTrigger={resetTrigger}
                 playingAudioId={playingSongId}
                 onTogglePlaySong={handleTogglePlaySong}
+                theme={theme}
               />
             )}
 
@@ -5880,6 +6330,7 @@ export default function App() {
                 savedMedia={savedMedia}
                 onToggleWatchlist={toggleWatchlist}
                 onToggleFavourite={toggleFavourite}
+                theme={theme}
               />
             )}
 

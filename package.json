@@ -4,7 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "cd ai-agent-1.0-69f761fecbb863689f6a433fb075fc31f838d71b && npm install && npm run build",
-    "start": "cd ai-agent-1.0-69f761fecbb863689f6a433fb075fc31f838d71b && node server.js"
+    "dev": "npm --prefix ai-agent-1.0-69f761fecbb863689f6a433fb075fc31f838d71b run dev",
+    "dev:full": "npm --prefix ai-agent-1.0-69f761fecbb863689f6a433fb075fc31f838d71b run dev:full",
+    "server": "npm --prefix ai-agent-1.0-69f761fecbb863689f6a433fb075fc31f838d71b run server",
+    "start": "node ai-agent-1.0-69f761fecbb863689f6a433fb075fc31f838d71b/server.js",
+    "build": "npm --prefix ai-agent-1.0-69f761fecbb863689f6a433fb075fc31f838d71b run build"
   }
 }

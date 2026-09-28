@@ -50,7 +50,8 @@ export default function MusicPlayerApp({
   embedded = false,
   externalQuery,
   selectedGenreProp,
-  selectedMoodProp
+  selectedMoodProp,
+  theme = "dark"
 }) {
   // Normalize IDs between App and MusicPlayerApp
   const normalizeGenreId = (id) => {
@@ -488,7 +489,7 @@ export default function MusicPlayerApp({
   }`;
 
   return (
-    <div className={`cyber-player-root ${embedded ? "cyber-player-root--embedded" : ""}`}>
+    <div className={`cyber-player-root ${embedded ? "cyber-player-root--embedded" : ""} ${theme === "light" ? "cyber-player-root--light" : "cyber-player-root--dark"}`}>
       {/* ------------------------------------------------------------- */}
       {/* CYBERPUNK / NEON AESTHETICS STYLE SHEET                        */}
       {/* ------------------------------------------------------------- */}
@@ -1697,6 +1698,223 @@ export default function MusicPlayerApp({
           .cyber-player-root {
             padding-bottom: 160px;
           }
+        }
+
+        /* ---------------- LIGHT MODE STYLING ---------------- */
+        .cyber-player-root--light {
+          --bg-slate: #f8fafc;
+          --bg-surface: #ffffff;
+          --bg-card: #ffffff;
+          --bg-card-hover: #f1f5f9;
+          --pill-border: rgba(0, 0, 0, 0.12);
+          --pill-hover-border: #0284c7;
+          --cyan-glow: #0284c7;
+          --cyan-dim: rgba(2, 132, 199, 0.12);
+          --cyan-border: rgba(2, 132, 199, 0.35);
+          color: #0f172a !important;
+          background: #f8fafc !important;
+        }
+
+        .cyber-player-root--light .cp-header {
+          background: rgba(255, 255, 255, 0.92) !important;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+        }
+
+        .cyber-player-root--light .cp-brand__title {
+          color: #0f172a !important;
+          background: linear-gradient(135deg, #0f172a 30%, #0284c7 85%, #4f46e5 100%) !important;
+          -webkit-background-clip: text !important;
+          -webkit-text-fill-color: transparent !important;
+        }
+
+        .cyber-player-root--light .cp-brand__badge {
+          background: #e0f2fe !important;
+          color: #0369a1 !important;
+          border: 1px solid #7dd3fc !important;
+          font-weight: 700 !important;
+        }
+
+        .cyber-player-root--light .cp-search-wrap {
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.15) !important;
+          box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04) !important;
+        }
+
+        .cyber-player-root--light .cp-search-input {
+          color: #0f172a !important;
+          font-weight: 500;
+        }
+
+        .cyber-player-root--light .cp-search-input::placeholder {
+          color: #64748b !important;
+        }
+
+        .cyber-player-root--light .cp-search-icon,
+        .cyber-player-root--light .cp-search-clear {
+          color: #475569 !important;
+        }
+
+        .cyber-player-root--light .cp-search-clear:hover {
+          color: #0f172a !important;
+        }
+
+        .cyber-player-root--light .cp-cinema-switch-btn {
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.12) !important;
+          color: #334155 !important;
+          font-weight: 600 !important;
+        }
+
+        .cyber-player-root--light .cp-cinema-switch-btn:hover {
+          background: #f1f5f9 !important;
+          color: #0284c7 !important;
+          border-color: #0284c7 !important;
+        }
+
+        .cyber-player-root--light .cp-section-label,
+        .cyber-player-root--light .cp-section-label--mood {
+          color: #0f172a !important;
+          font-weight: 800 !important;
+        }
+
+        .cyber-player-root--light .cp-pill {
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.12) !important;
+          color: #1e293b !important;
+          font-weight: 600 !important;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03) !important;
+        }
+
+        .cyber-player-root--light .cp-pill:hover {
+          background: #f1f5f9 !important;
+          color: #0284c7 !important;
+          border-color: #0284c7 !important;
+        }
+
+        .cyber-player-root--light .cp-pill--active {
+          background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%) !important;
+          color: #ffffff !important;
+          border-color: transparent !important;
+          box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3) !important;
+        }
+
+        .cyber-player-root--light .cp-track-card {
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.1) !important;
+          box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04) !important;
+        }
+
+        .cyber-player-root--light .cp-track-card:hover {
+          border-color: #0284c7 !important;
+          box-shadow: 0 8px 24px rgba(2, 132, 199, 0.12) !important;
+        }
+
+        .cyber-player-root--light .cp-track-card__title {
+          color: #0f172a !important;
+          font-weight: 700 !important;
+        }
+
+        .cyber-player-root--light .cp-track-card__artist {
+          color: #334155 !important;
+          font-weight: 600 !important;
+        }
+
+        .cyber-player-root--light .cp-track-card__meta,
+        .cyber-player-root--light .cp-track-card__year {
+          color: #475569 !important;
+          font-weight: 600 !important;
+        }
+
+        .cyber-player-root--light .cp-track-card__genre {
+          background: #e0f2fe !important;
+          color: #0369a1 !important;
+          border: 1px solid #bae6fd !important;
+          font-weight: 600 !important;
+        }
+
+        .cyber-player-root--light .cp-track-card__mood {
+          background: #faf5ff !important;
+          color: #7e22ce !important;
+          border: 1px solid #e9d5ff !important;
+          font-weight: 600 !important;
+        }
+
+        .cyber-player-root--light .cp-action-btn {
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.12) !important;
+          color: #334155 !important;
+        }
+
+        .cyber-player-root--light .cp-action-btn:hover {
+          background: #f1f5f9 !important;
+          color: #0f172a !important;
+          border-color: #0284c7 !important;
+        }
+
+        .cyber-player-root--light .cp-now-playing-bar {
+          background: rgba(255, 255, 255, 0.96) !important;
+          border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+          box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08) !important;
+        }
+
+        .cyber-player-root--light .cp-np__title {
+          color: #0f172a !important;
+          font-weight: 700 !important;
+        }
+
+        .cyber-player-root--light .cp-np__artist {
+          color: #334155 !important;
+          font-weight: 600 !important;
+        }
+
+        .cyber-player-root--light .cp-np__time {
+          color: #475569 !important;
+          font-weight: 600 !important;
+        }
+
+        .cyber-player-root--light .cp-np__ctrl-btn {
+          color: #334155 !important;
+        }
+
+        .cyber-player-root--light .cp-np__ctrl-btn:hover {
+          color: #0284c7 !important;
+        }
+
+        .cyber-player-root--light .cp-np__play-btn {
+          background: #0284c7 !important;
+          color: #ffffff !important;
+          box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3) !important;
+        }
+
+        .cyber-player-root--light .cp-seek-slider {
+          background: #e2e8f0 !important;
+        }
+
+        .cyber-player-root--light .cp-lyrics-modal {
+          background: #ffffff !important;
+          border: 1px solid rgba(0, 0, 0, 0.12) !important;
+          color: #0f172a !important;
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .cyber-player-root--light .cp-lyrics-title {
+          color: #0f172a !important;
+          font-weight: 800 !important;
+        }
+
+        .cyber-player-root--light .cp-lyrics-artist {
+          color: #334155 !important;
+          font-weight: 600 !important;
+        }
+
+        .cyber-player-root--light .cp-lyrics-content {
+          color: #1e293b !important;
+          line-height: 1.8 !important;
+        }
+
+        .cyber-player-root--light .cp-empty-text {
+          color: #475569 !important;
         }
       `}</style>
 

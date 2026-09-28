@@ -1,7 +1,12 @@
 import Database from 'better-sqlite3';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-// This will create a file named 'reel_record.db' in your root folder
-const db = new Database('reel_record.db');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const dbPath = path.join(__dirname, 'reel_record.db');
+
+const db = new Database(dbPath);
 db.pragma('journal_mode = WAL'); // Speeds up SQLite significantly
 
 // Initialize all our tables if they don't exist yet

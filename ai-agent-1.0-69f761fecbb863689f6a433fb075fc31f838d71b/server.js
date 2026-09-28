@@ -9,6 +9,10 @@ import { getCuratedRecommendations, resolveMood, MOOD_SUGGESTIONS, CURATED_MEDIA
 import { getCuratedSongs, CURATED_SONGS } from "./curatedSongs.js";
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 dotenv.config();
 
@@ -1453,8 +1457,11 @@ app.get("/api/health", (_req, res) => {
 /* --------------------------------------------------------------- */
 /* PRODUCTION STATIC ASSETS SERVING                                */
 /* --------------------------------------------------------------- */
-const distPath = path.join(process.cwd(), "dist");
-if (fs.existsSync(distPath)) {
+const localDist = path.join(__dirname, "dist");
+const cwdDist = path.join(process.cwd(), "dist");
+const distPath = fs.existsSync(localDist) ? localDist : (fs.existsSync(cwdDist) ? cwdDist : null);
+
+if (distPath && fs.existsSync(distPath)) {
   app.use(express.static(distPath));
   app.use((req, res, next) => {
     if (req.method === "GET" && !req.path.startsWith("/api")) {

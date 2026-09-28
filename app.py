@@ -27,7 +27,8 @@ app = Flask(
     static_url_path=""
 )
 
-NODE_PORT = 5001
+FLASK_PORT = int(os.environ.get("PORT", 5000))
+NODE_PORT = int(os.environ.get("NODE_PORT", 5002 if FLASK_PORT == 5001 else 5001))
 NODE_URL = f"http://127.0.0.1:{NODE_PORT}"
 node_process = None
 
@@ -108,5 +109,4 @@ def serve_frontend(path):
     })
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5001))
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=FLASK_PORT)
